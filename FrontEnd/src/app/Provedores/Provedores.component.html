@@ -1,0 +1,97 @@
+<div class="content">
+  <div class="col-lg-12">
+
+    <div class="card" >
+      <div class="card-header">
+        <strong>Crear Provedor</strong>
+    </div>
+    <div class="card-body card-block">
+    <form [formGroup]="FormProveedor" class="form-horizontal">
+
+
+    <div class="row form-group">
+      <div class="col col-md-1"><label for="text-input" class=" form-control-label">Provedor:</label></div>
+      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" formControlName="Proveedor_Nombre" placeholder="Nombre" class="form-control">
+        </div>
+  </div>
+
+
+  <div class="row form-group">
+    <div class="col-md-7 mb-6">
+      <ng-select [items]="Categoria" class="custom" bindLabel="Categoria_Nombre" bindValue="Categoria_id"
+      placeholder="Categoria_id" formControlName="Categoria_id" ></ng-select>
+  </div>
+  </div>
+
+    <div class="row form-group">
+      <div class="col col-md-1"><label for="text-input" class=" form-control-label">RNC:</label></div>
+      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" formControlName="Proveedor_RNC" placeholder="RNC" class="form-control">
+       </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col col-md-1"><label for="text-input" class=" form-control-label">Correo:</label></div>
+    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" formControlName="Proveedor_Email" placeholder="Correo" class="form-control">
+      </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col col-md-1"><label for="text-input" class=" form-control-label">Telefono:</label></div>
+    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" mask="(000)-000-0000" formControlName="Proveedor_Telefono" placeholder="Telefono" class="form-control">
+      </div>
+</div>
+
+<div class="row form-group">
+  <div class="col col-md-1"><label for="text-input" class=" form-control-label">Celular:</label></div>
+  <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" mask="(000)-000-0000" formControlName="Proveedor_Celular" placeholder="Celular" class="form-control">
+    </div>
+</div>
+
+
+<div class="row form-group">
+  <div class="col col-md-1"><label for="textarea-input" class=" form-control-label">Direccion:</label></div>
+  <div class="col-6 col-md-9"><textarea name="textarea-input"  cols="5" rows="5" id="textarea-input" placeholder="Direccion..." formControlName="Proveedor_Direccion" class="form-control"></textarea></div>
+</div>
+
+<div class="card-body">
+  <div class="col-md-6 mb-3">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticModal" >Guardar</button>
+  &nbsp;
+ <button type="button" class="btn btn-danger">Cancelar</button>
+  </div>
+  </div>
+      </form>
+</div>
+  </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticModalLabel">Confirmacion</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <p>
+              Esta seguro de que desea guardar el Proveedor
+             </p>
+         </div>
+         <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+<<<<<<< HEAD
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="AgregarProveedor()">Guardar</button>
+=======
+          <button type="button" class="btn btn-primary" (click)="AgregarProveedor()">Guardar</button>
+>>>>>>> 7d14f8a53dc958fd5711c93622ccb227f378ca83
+      </div>
+  </div>
+</div>
+</div>
+
+

@@ -1,0 +1,76 @@
+<div class="content">
+    <div class="col-lg-12">
+        <div class="card">
+              <div class="card-header">
+                  <strong class="card-title">Lista de Cliente</strong>
+              </div>
+
+
+              <div class="m-4">
+                <button type="button" class="btn btn-success float-right" routerLink="AgregarCliente">Crear Cliente</button>
+              </div>
+
+              <form [formGroup]="listaForm" class="search-form ml-3">
+                <div class="input-group">
+                  <input class="form-control col-6" type="text" formControlName="Cliente_Nombre" placeholder="Nombre, Apellido" aria-label="Search" required autocomplete="off">
+                  <button class="btn btn-primary m-1" type="button" (click)="BuscarCliente(0)"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  <button class="btn btn-info m-1" type="button" (click)="ResetForm()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                </div>
+
+                <!--col-6 d-grid gap-2 d-md-block-->
+                
+
+                <div class="col-7" *ngIf="this.ClienteLista?.length > 0">
+                    <span>{{cantidad_Registro}} registro(s)</span>
+                  </div>
+
+                  <div class="d-flex justify-content-end m-4" id="order_by" *ngIf="this.ClienteLista[0]?.Cantidad_Registros > 10">
+                    <strong>Cant. registros: </strong>
+                    <select (change)="BuscarCliente(0)"  class="" formControlName="PageSize">
+                      <option value="10">10</option>
+                      <option value="30">30</option>
+                      <option value="50">50</option>
+                    </select>
+
+                </div>
+              </form>
+
+          <div class="card-body">
+              <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                              <!-- <th scope="col">#</th> -->
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Apellido</th>
+                              <th scope="col">Correo </th>
+                              <th scope="col">Direccion </th>
+                              <th scope="col">Telefono</th>
+                              <th scope="col">Celular</th>
+                              <th scope="col"></th>
+                              <th scope="col"></th>
+                          </tr>
+                      </thead>
+                <tbody>
+                          <tr *ngFor="let c of ClienteLista | paginate: { itemsPerPage:_ServicioCliente.FiltroCliente.PageSize, currentPage: indice, totalItems: cantidad_Registro}">
+                              <!-- <th scope="row">1</th> -->
+                              <td>{{c?.Cliente_Nombre}}</td>
+                              <td>{{c?.Cliente_Apellido}}</td>
+                              <td>{{c?.Cliente_Email}}</td>
+                              <td>{{c?.Cliente_Direccion}}</td>
+                              <td>{{c?.Cliente_Telefono}}</td>
+                              <td>{{c?.Cliente_Celular}}</td>
+                              <td><button class="btn btn-success" [routerLink]="'detalle/'+ c.Cliente_id"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                              <td><button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                          </tr>
+                  </tbody>
+          </table>
+      </div>
+      <div class="my-pagination mr-5" *ngIf="ClienteLista?.length > 0" >
+        <pagination-controls (pageChange)="indice = $event; BuscarCliente(1)" autoHide="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+    </div>
+
+    </div>
+
+  </div>
+

@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServisSaltesaModelStoreContainer" CdmEntityContainer="ServisSaltesaEntities">
+    <EntitySetMapping Name="Categorias_Trans">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Categorias_Trans">
+        <MappingFragment StoreEntitySet="Categorias_Trans">
+          <ScalarProperty Name="Categoria_id" ColumnName="Categoria_id" />
+          <ScalarProperty Name="Categoria_Nombre" ColumnName="Categoria_Nombre" />
+          <ScalarProperty Name="Categoria_Descripcion" ColumnName="Categoria_Descripcion" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes_Trans">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Clientes_Trans">
+        <MappingFragment StoreEntitySet="Clientes_Trans">
+          <ScalarProperty Name="Cliente_id" ColumnName="Cliente_id" />
+          <ScalarProperty Name="Cliente_Nombre" ColumnName="Cliente_Nombre" />
+          <ScalarProperty Name="Cliente_Apellido" ColumnName="Cliente_Apellido" />
+          <ScalarProperty Name="Cliente_Direccion" ColumnName="Cliente_Direccion" />
+          <ScalarProperty Name="Cliente_Email" ColumnName="Cliente_Email" />
+          <ScalarProperty Name="Cliente_Telefono" ColumnName="Cliente_Telefono" />
+          <ScalarProperty Name="Cliente_Celular" ColumnName="Cliente_Celular" />
+          <ScalarProperty Name="Cliente_RNC" ColumnName="Cliente_RNC" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Color_Cata">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Color_Cata">
+        <MappingFragment StoreEntitySet="Color_Cata">
+          <ScalarProperty Name="Color_id" ColumnName="Color_id" />
+          <ScalarProperty Name="Color_Nombre" ColumnName="Color_Nombre" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comprobantes_Cata">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Comprobantes_Cata">
+        <MappingFragment StoreEntitySet="Comprobantes_Cata">
+          <ScalarProperty Name="Comprobante_id" ColumnName="Comprobante_id" />
+          <ScalarProperty Name="Comprobante_Nombre" ColumnName="Comprobante_Nombre" />
+          <ScalarProperty Name="Comprobante_Descripcion" ColumnName="Comprobante_Descripcion" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Regidtro_Usuario" ColumnName="Regidtro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados_Trans">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Empleados_Trans">
+        <MappingFragment StoreEntitySet="Empleados_Trans">
+          <ScalarProperty Name="Empleado_id" ColumnName="Empleado_id" />
+          <ScalarProperty Name="Empleado_Nombre" ColumnName="Empleado_Nombre" />
+          <ScalarProperty Name="Empleado_Apellido" ColumnName="Empleado_Apellido" />
+          <ScalarProperty Name="Empleado_Direccion" ColumnName="Empleado_Direccion" />
+          <ScalarProperty Name="Empleado_Telefono" ColumnName="Empleado_Telefono" />
+          <ScalarProperty Name="Empleado_Celular" ColumnName="Empleado_Celular" />
+          <ScalarProperty Name="Empresa_ID" ColumnName="Empresa_ID" />
+          <ScalarProperty Name="Empleado_Edad" ColumnName="Empleado_Edad" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas_Trans">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Empresas_Trans">
+        <MappingFragment StoreEntitySet="Empresas_Trans">
+          <ScalarProperty Name="Empresa_id" ColumnName="Empresa_id" />
+          <ScalarProperty Name="Empresa_User" ColumnName="Empresa_User" />
+          <ScalarProperty Name="Empresa_Password" ColumnName="Empresa_Password" />
+          <ScalarProperty Name="Empresa_Nombre" ColumnName="Empresa_Nombre" />
+          <ScalarProperty Name="Empresa_Email" ColumnName="Empresa_Email" />
+          <ScalarProperty Name="Empresa_Direccion" ColumnName="Empresa_Direccion" />
+          <ScalarProperty Name="Empresa_Telefono" ColumnName="Empresa_Telefono" />
+          <ScalarProperty Name="Empresa_Logo" ColumnName="Empresa_Logo" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Detalles_Trans">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Facturas_Detalles_Trans">
+        <MappingFragment StoreEntitySet="Facturas_Detalles_Trans">
+          <ScalarProperty Name="Detalle_id" ColumnName="Detalle_id" />
+          <ScalarProperty Name="Factura_ID" ColumnName="Factura_ID" />
+          <ScalarProperty Name="Detalle_Cantidad" ColumnName="Detalle_Cantidad" />
+          <ScalarProperty Name="Detalle_Descripcion" ColumnName="Detalle_Descripcion" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Trans">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Facturas_Trans">
+        <MappingFragment StoreEntitySet="Facturas_Trans">
+          <ScalarProperty Name="factura_id" ColumnName="factura_id" />
+          <ScalarProperty Name="Cliente_ID" ColumnName="Cliente_ID" />
+          <ScalarProperty Name="Marca_ID" ColumnName="Marca_ID" />
+          <ScalarProperty Name="Modelo_ID" ColumnName="Modelo_ID" />
+          <ScalarProperty Name="TipoVehiculo_ID" ColumnName="TipoVehiculo_ID" />
+          <ScalarProperty Name="Factura_Comprobante" ColumnName="Factura_Comprobante" />
+          <ScalarProperty Name="TipoTransaccion_ID" ColumnName="TipoTransaccion_ID" />
+          <ScalarProperty Name="Factura_NCF" ColumnName="Factura_NCF" />
+          <ScalarProperty Name="Factura_NIF" ColumnName="Factura_NIF" />
+          <ScalarProperty Name="Factura_ITBIS" ColumnName="Factura_ITBIS" />
+          <ScalarProperty Name="Factura_Neto" ColumnName="Factura_Neto" />
+          <ScalarProperty Name="Factura_Subtotal" ColumnName="Factura_Subtotal" />
+          <ScalarProperty Name="Factura_Total" ColumnName="Factura_Total" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventarios_Trans">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Inventarios_Trans">
+        <MappingFragment StoreEntitySet="Inventarios_Trans">
+          <ScalarProperty Name="Inventario_id" ColumnName="Inventario_id" />
+          <ScalarProperty Name="Producto_ID" ColumnName="Producto_ID" />
+          <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+          <ScalarProperty Name="Proveedor_ID" ColumnName="Proveedor_ID" />
+          <ScalarProperty Name="Inventario_Entrada" ColumnName="Inventario_Entrada" />
+          <ScalarProperty Name="Inventario_Stock" ColumnName="Inventario_Stock" />
+          <ScalarProperty Name="Inventario_Salida" ColumnName="Inventario_Salida" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marcas_Cata">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Marcas_Cata">
+        <MappingFragment StoreEntitySet="Marcas_Cata">
+          <ScalarProperty Name="Marca_id" ColumnName="Marca_id" />
+          <ScalarProperty Name="Marca_Nombre" ColumnName="Marca_Nombre" />
+          <ScalarProperty Name="Marca_Descripcion" ColumnName="Marca_Descripcion" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modelos_Cata">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Modelos_Cata">
+        <MappingFragment StoreEntitySet="Modelos_Cata">
+          <ScalarProperty Name="Modelo_id" ColumnName="Modelo_id" />
+          <ScalarProperty Name="Modelo_Nombre" ColumnName="Modelo_Nombre" />
+          <ScalarProperty Name="Modelo_Color" ColumnName="Modelo_Color" />
+          <ScalarProperty Name="Marca_ID" ColumnName="Marca_ID" />
+          <ScalarProperty Name="Modelo_Descripcion" ColumnName="Modelo_Descripcion" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_Trans">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Productos_Trans">
+        <MappingFragment StoreEntitySet="Productos_Trans">
+          <ScalarProperty Name="Producto_id" ColumnName="Producto_id" />
+          <ScalarProperty Name="Producto_Codigo" ColumnName="Producto_Codigo" />
+          <ScalarProperty Name="Producto_Nombre" ColumnName="Producto_Nombre" />
+          <ScalarProperty Name="Producto_Descripcion" ColumnName="Producto_Descripcion" />
+          <ScalarProperty Name="Producto_Costo" ColumnName="Producto_Costo" />
+          <ScalarProperty Name="Producto_Precio" ColumnName="Producto_Precio" />
+          <ScalarProperty Name="Producto_Cantidad" ColumnName="Producto_Cantidad" />
+          <ScalarProperty Name="Color_ID" ColumnName="Color_ID" />
+          <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+          <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+          <ScalarProperty Name="Fecha_Caducidad" ColumnName="Fecha_Caducidad" />
+          <ScalarProperty Name="Proveedor_Codigo_ID" ColumnName="Proveedor_Codigo_ID" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Comprobantes_Trans">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Tipo_Comprobantes_Trans">
+        <MappingFragment StoreEntitySet="Tipo_Comprobantes_Trans">
+          <ScalarProperty Name="Tipo_Comprobante_id" ColumnName="Tipo_Comprobante_id" />
+          <ScalarProperty Name="Comprobante_ID" ColumnName="Comprobante_ID" />
+          <ScalarProperty Name="Tipo_Comprobante_Serie" ColumnName="Tipo_Comprobante_Serie" />
+          <ScalarProperty Name="Tipo_Comprobante_Numero" ColumnName="Tipo_Comprobante_Numero" />
+          <ScalarProperty Name="Tipo_Comprobante_Secuencia" ColumnName="Tipo_Comprobante_Secuencia" />
+          <ScalarProperty Name="Empresa_ID" ColumnName="Empresa_ID" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Transaccion_Cata">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Tipo_Transaccion_Cata">
+        <MappingFragment StoreEntitySet="Tipo_Transaccion_Cata">
+          <ScalarProperty Name="Transaccion_id" ColumnName="Transaccion_id" />
+          <ScalarProperty Name="Transaccion_Nombre" ColumnName="Transaccion_Nombre" />
+          <ScalarProperty Name="Transaccion_Descripcion" ColumnName="Transaccion_Descripcion" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Vehiculo_Cata">
+      <EntityTypeMapping TypeName="ServisSaltesaModel.Tipo_Vehiculo_Cata">
+        <MappingFragment StoreEntitySet="Tipo_Vehiculo_Cata">
+          <ScalarProperty Name="TipoVehiculo_id" ColumnName="TipoVehiculo_id" />
+          <ScalarProperty Name="TipoVehiculo_Nombre" ColumnName="TipoVehiculo_Nombre" />
+          <ScalarProperty Name="TipoVehiculo_Descripcion" ColumnName="TipoVehiculo_Descripcion" />
+          <ScalarProperty Name="Registro_Estado" ColumnName="Registro_Estado" />
+          <ScalarProperty Name="Registro_Usuario" ColumnName="Registro_Usuario" />
+          <ScalarProperty Name="Registro_Fecha" ColumnName="Registro_Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Cliente_Inserta" FunctionName="ServisSaltesaModel.Store.Proc_Cliente_Inserta" />
+    <FunctionImportMapping FunctionImportName="Proc_Color_Cata_Consulta" FunctionName="ServisSaltesaModel.Store.Proc_Color_Cata_Consulta">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ServisSaltesaModel.Proc_Color_Cata_Consulta_Result">
+          <ScalarProperty Name="Color_id" ColumnName="Color_id" />
+          <ScalarProperty Name="Color_Nombre" ColumnName="Color_Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Comprobantes_Cata_Lista" FunctionName="ServisSaltesaModel.Store.Proc_Comprobantes_Cata_Lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ServisSaltesaModel.Proc_Comprobantes_Cata_Lista_Result">
+          <ScalarProperty Name="Comprobante_id" ColumnName="Comprobante_id" />
+          <ScalarProperty Name="Comprobante_Nombre" ColumnName="Comprobante_Nombre" />
+          <ScalarProperty Name="Comprobante_Descripcion" ColumnName="Comprobante_Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Comprobantes_Secuencia_Consulta" FunctionName="ServisSaltesaModel.Store.Proc_Comprobantes_Secuencia_Consulta">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ServisSaltesaModel.Proc_Comprobantes_Secuencia_Consulta_Result">
+          <ScalarProperty Name="Tipo_Comprobante_Serie" ColumnName="Tipo_Comprobante_Serie" />
+          <ScalarProperty Name="Tipo_Comprobante_Numero" ColumnName="Tipo_Comprobante_Numero" />
+          <ScalarProperty Name="Tipo_Comprobante_Secuencia" ColumnName="Tipo_Comprobante_Secuencia" />
+          <ScalarProperty Name="Comprobantes_Secuencia" ColumnName="Comprobantes_Secuencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Empleados_Lista" FunctionName="ServisSaltesaModel.Store.Proc_Empleados_Lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ServisSaltesaModel.Proc_Empleados_Lista_Result">
+          <ScalarProperty Name="Empleado_id" ColumnName="Empleado_id" />
+          <ScalarProperty Name="Empleado_Nombre" ColumnName="Empleado_Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Marcas_Lista" FunctionName="ServisSaltesaModel.Store.Proc_Marcas_Lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ServisSaltesaModel.Proc_Marcas_Lista_Result">
+          <ScalarProperty Name="Marca_id" ColumnName="Marca_id" />
+          <ScalarProperty Name="Marca_Nombre" ColumnName="Marca_Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Modelos_Lista" FunctionName="ServisSaltesaModel.Store.Proc_Modelos_Lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ServisSaltesaModel.Proc_Modelos_Lista_Result">
+          <ScalarProperty Name="Modelo_id" ColumnName="Modelo_id" />
+          <ScalarProperty Name="Modelo_Nombre" ColumnName="Modelo_Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Tipo_Transaccion_Lista" FunctionName="ServisSaltesaModel.Store.Proc_Tipo_Transaccion_Lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ServisSaltesaModel.Proc_Tipo_Transaccion_Lista_Result">
+          <ScalarProperty Name="Transaccion_id" ColumnName="Transaccion_id" />
+          <ScalarProperty Name="Transaccion_Nombre" ColumnName="Transaccion_Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Tipo_Vehiculo_Lista" FunctionName="ServisSaltesaModel.Store.Proc_Tipo_Vehiculo_Lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ServisSaltesaModel.Proc_Tipo_Vehiculo_Lista_Result">
+          <ScalarProperty Name="TipoVehiculo_id" ColumnName="TipoVehiculo_id" />
+          <ScalarProperty Name="TipoVehiculo_Nombre" ColumnName="TipoVehiculo_Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Clientes_Lista_Consulta" FunctionName="ServisSaltesaModel.Store.Proc_Clientes_Lista_Consulta">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ServisSaltesaModel.Proc_Clientes_Lista_Consulta_Result" />
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

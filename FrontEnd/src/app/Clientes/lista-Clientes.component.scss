@@ -1,0 +1,12 @@
+.custom-tab .nav-tabs > a.active:after,
+.custom-tab .nav-tabs > li.active > a:focus:after,
+.custom-tab .nav-tabs > li.active > a:hover:after {
+  background: #ff2e44;
+  bottom: -1px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: 999; }

@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ServisSaltesaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorias_Trans">
+    <Key>
+      <PropertyRef Name="Categoria_id" />
+    </Key>
+    <Property Name="Categoria_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Categoria_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Categoria_Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registro_Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clientes_Trans">
+    <Key>
+      <PropertyRef Name="Cliente_id" />
+    </Key>
+    <Property Name="Cliente_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cliente_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cliente_Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cliente_Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cliente_Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cliente_Telefono" Type="varchar" MaxLength="15" />
+    <Property Name="Cliente_Celular" Type="varchar" MaxLength="12" />
+    <Property Name="Cliente_RNC" Type="varchar" MaxLength="10" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Registro_Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Color_Cata">
+    <Key>
+      <PropertyRef Name="Color_id" />
+    </Key>
+    <Property Name="Color_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Color_Nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registro_Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comprobantes_Cata">
+    <Key>
+      <PropertyRef Name="Comprobante_id" />
+    </Key>
+    <Property Name="Comprobante_id" Type="tinyint" Nullable="false" />
+    <Property Name="Comprobante_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comprobante_Descripcion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Regidtro_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registro_Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleados_Trans">
+    <Key>
+      <PropertyRef Name="Empleado_id" />
+    </Key>
+    <Property Name="Empleado_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Empleado_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Empleado_Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Empleado_Direccion" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Empleado_Telefono" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Empleado_Celular" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Empresa_ID" Type="int" Nullable="false" />
+    <Property Name="Empleado_Edad" Type="tinyint" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registro_Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empresas_Trans">
+    <Key>
+      <PropertyRef Name="Empresa_id" />
+    </Key>
+    <Property Name="Empresa_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Empresa_User" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Empresa_Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Empresa_Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Empresa_Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Empresa_Direccion" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Empresa_Telefono" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Empresa_Logo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registro_Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Facturas_Detalles_Trans">
+    <Key>
+      <PropertyRef Name="Detalle_id" />
+    </Key>
+    <Property Name="Detalle_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Factura_ID" Type="int" Nullable="false" />
+    <Property Name="Detalle_Cantidad" Type="int" Nullable="false" />
+    <Property Name="Detalle_Descripcion" Type="varchar" MaxLength="200" />
+    <Property Name="Importe" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Registro_Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Facturas_Trans">
+    <Key>
+      <PropertyRef Name="factura_id" />
+    </Key>
+    <Property Name="factura_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cliente_ID" Type="int" Nullable="false" />
+    <Property Name="Marca_ID" Type="int" Nullable="false" />
+    <Property Name="Modelo_ID" Type="int" Nullable="false" />
+    <Property Name="TipoVehiculo_ID" Type="tinyint" Nullable="false" />
+    <Property Name="Factura_Comprobante" Type="varchar" MaxLength="20" />
+    <Property Name="TipoTransaccion_ID" Type="tinyint" Nullable="false" />
+    <Property Name="Factura_NCF" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Factura_NIF" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Factura_ITBIS" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Factura_Neto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Factura_Subtotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Factura_Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Registro_Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Inventarios_Trans">
+    <Key>
+      <PropertyRef Name="Inventario_id" />
+    </Key>
+    <Property Name="Inventario_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Producto_ID" Type="int" Nullable="false" />
+    <Property Name="Categoria_ID" Type="int" Nullable="false" />
+    <Property Name="Proveedor_ID" Type="int" Nullable="false" />
+    <Property Name="Inventario_Entrada" Type="int" Nullable="false" />
+    <Property Name="Inventario_Stock" Type="int" Nullable="false" />
+    <Property Name="Inventario_Salida" Type="int" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registro_Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marcas_Cata">
+    <Key>
+      <PropertyRef Name="Marca_id" />
+    </Key>
+    <Property Name="Marca_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Marca_Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Marca_Descripcion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registro_Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Modelos_Cata">
+    <Key>
+      <PropertyRef Name="Modelo_id" />
+    </Key>
+    <Property Name="Modelo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Modelo_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Modelo_Color" Type="varchar" MaxLength="15" />
+    <Property Name="Marca_ID" Type="int" Nullable="false" />
+    <Property Name="Modelo_Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Registro_Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Productos_Trans">
+    <Key>
+      <PropertyRef Name="Producto_id" />
+    </Key>
+    <Property Name="Producto_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Producto_Codigo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Producto_Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Producto_Descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Producto_Costo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Producto_Precio" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Producto_Cantidad" Type="int" Nullable="false" />
+    <Property Name="Color_ID" Type="int" Nullable="false" />
+    <Property Name="Categoria_ID" Type="int" Nullable="false" />
+    <Property Name="Fecha_Ingreso" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_Caducidad" Type="datetime" Nullable="false" />
+    <Property Name="Proveedor_Codigo_ID" Type="int" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registro_Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Comprobantes_Trans">
+    <Key>
+      <PropertyRef Name="Tipo_Comprobante_id" />
+    </Key>
+    <Property Name="Tipo_Comprobante_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comprobante_ID" Type="tinyint" Nullable="false" />
+    <Property Name="Tipo_Comprobante_Serie" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Tipo_Comprobante_Numero" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Tipo_Comprobante_Secuencia" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="Empresa_ID" Type="int" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registro_Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Transaccion_Cata">
+    <Key>
+      <PropertyRef Name="Transaccion_id" />
+    </Key>
+    <Property Name="Transaccion_id" Type="tinyint" Nullable="false" />
+    <Property Name="Transaccion_Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Transaccion_Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Registro_Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tipo_Vehiculo_Cata">
+    <Key>
+      <PropertyRef Name="TipoVehiculo_id" />
+    </Key>
+    <Property Name="TipoVehiculo_id" Type="tinyint" Nullable="false" />
+    <Property Name="TipoVehiculo_Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TipoVehiculo_Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Registro_Estado" Type="bit" Nullable="false" />
+    <Property Name="Registro_Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Registro_Fecha" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__Empleados__Empre__30C33EC3">
+    <End Role="Empresas_Trans" Type="Self.Empresas_Trans" Multiplicity="1" />
+    <End Role="Empleados_Trans" Type="Self.Empleados_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_Trans">
+        <PropertyRef Name="Empresa_id" />
+      </Principal>
+      <Dependent Role="Empleados_Trans">
+        <PropertyRef Name="Empresa_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___Clien__1332DBDC">
+    <End Role="Clientes_Trans" Type="Self.Clientes_Trans" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes_Trans">
+        <PropertyRef Name="Cliente_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="Cliente_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___Clien__3493CFA7">
+    <End Role="Clientes_Trans" Type="Self.Clientes_Trans" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes_Trans">
+        <PropertyRef Name="Cliente_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="Cliente_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___Clien__503BEA1C">
+    <End Role="Clientes_Trans" Type="Self.Clientes_Trans" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes_Trans">
+        <PropertyRef Name="Cliente_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="Cliente_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___Marca__66603565">
+    <End Role="Marcas_Cata" Type="Self.Marcas_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marcas_Cata">
+        <PropertyRef Name="Marca_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="Marca_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___Model__123EB7A3">
+    <End Role="Modelos_Cata" Type="Self.Modelos_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modelos_Cata">
+        <PropertyRef Name="Modelo_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="Modelo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___Model__339FAB6E">
+    <End Role="Modelos_Cata" Type="Self.Modelos_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modelos_Cata">
+        <PropertyRef Name="Modelo_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="Modelo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___Model__4F47C5E3">
+    <End Role="Modelos_Cata" Type="Self.Modelos_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modelos_Cata">
+        <PropertyRef Name="Modelo_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="Modelo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___TipoT__14270015">
+    <End Role="Tipo_Transaccion_Cata" Type="Self.Tipo_Transaccion_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Transaccion_Cata">
+        <PropertyRef Name="Transaccion_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="TipoTransaccion_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___TipoT__3587F3E0">
+    <End Role="Tipo_Transaccion_Cata" Type="Self.Tipo_Transaccion_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Transaccion_Cata">
+        <PropertyRef Name="Transaccion_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="TipoTransaccion_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___TipoT__51300E55">
+    <End Role="Tipo_Transaccion_Cata" Type="Self.Tipo_Transaccion_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Transaccion_Cata">
+        <PropertyRef Name="Transaccion_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="TipoTransaccion_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___TipoV__151B244E">
+    <End Role="Tipo_Vehiculo_Cata" Type="Self.Tipo_Vehiculo_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Vehiculo_Cata">
+        <PropertyRef Name="TipoVehiculo_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="TipoVehiculo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___TipoV__367C1819">
+    <End Role="Tipo_Vehiculo_Cata" Type="Self.Tipo_Vehiculo_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Vehiculo_Cata">
+        <PropertyRef Name="TipoVehiculo_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="TipoVehiculo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facturas___TipoV__5224328E">
+    <End Role="Tipo_Vehiculo_Cata" Type="Self.Tipo_Vehiculo_Cata" Multiplicity="1" />
+    <End Role="Facturas_Trans" Type="Self.Facturas_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Vehiculo_Cata">
+        <PropertyRef Name="TipoVehiculo_id" />
+      </Principal>
+      <Dependent Role="Facturas_Trans">
+        <PropertyRef Name="TipoVehiculo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Modelos_C__Regis__5629CD9C">
+    <End Role="Marcas_Cata" Type="Self.Marcas_Cata" Multiplicity="1" />
+    <End Role="Modelos_Cata" Type="Self.Modelos_Cata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marcas_Cata">
+        <PropertyRef Name="Marca_id" />
+      </Principal>
+      <Dependent Role="Modelos_Cata">
+        <PropertyRef Name="Marca_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Trans_Categorias_Trans">
+    <End Role="Categorias_Trans" Type="Self.Categorias_Trans" Multiplicity="1" />
+    <End Role="Productos_Trans" Type="Self.Productos_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias_Trans">
+        <PropertyRef Name="Categoria_id" />
+      </Principal>
+      <Dependent Role="Productos_Trans">
+        <PropertyRef Name="Categoria_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Trans_Color_Cata">
+    <End Role="Color_Cata" Type="Self.Color_Cata" Multiplicity="1" />
+    <End Role="Productos_Trans" Type="Self.Productos_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color_Cata">
+        <PropertyRef Name="Color_id" />
+      </Principal>
+      <Dependent Role="Productos_Trans">
+        <PropertyRef Name="Color_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Trans_Productos_Trans">
+    <End Role="Productos_Trans" Type="Self.Productos_Trans" Multiplicity="1" />
+    <End Role="Productos_Trans1" Type="Self.Productos_Trans" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Productos_Trans">
+        <PropertyRef Name="Producto_id" />
+      </Principal>
+      <Dependent Role="Productos_Trans1">
+        <PropertyRef Name="Producto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tipo_Comprobantes_Trans_Comprobantes_Cata">
+    <End Role="Comprobantes_Cata" Type="Self.Comprobantes_Cata" Multiplicity="1" />
+    <End Role="Tipo_Comprobantes_Trans" Type="Self.Tipo_Comprobantes_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comprobantes_Cata">
+        <PropertyRef Name="Comprobante_id" />
+      </Principal>
+      <Dependent Role="Tipo_Comprobantes_Trans">
+        <PropertyRef Name="Comprobante_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tipo_Comprobantes_Trans_Empresas_Trans">
+    <End Role="Empresas_Trans" Type="Self.Empresas_Trans" Multiplicity="1" />
+    <End Role="Tipo_Comprobantes_Trans" Type="Self.Tipo_Comprobantes_Trans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_Trans">
+        <PropertyRef Name="Empresa_id" />
+      </Principal>
+      <Dependent Role="Tipo_Comprobantes_Trans">
+        <PropertyRef Name="Empresa_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Proc_Cliente_Inserta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Cliente_Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Cliente_Apellido" Type="varchar" Mode="In" />
+    <Parameter Name="Cliente_Email" Type="varchar" Mode="In" />
+    <Parameter Name="Cliente_Telefono" Type="varchar" Mode="In" />
+    <Parameter Name="Cliente_Celular" Type="varchar" Mode="In" />
+    <Parameter Name="Cliente_RNC" Type="varchar" Mode="In" />
+    <Parameter Name="Cliente_Direccion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_Clientes_Lista_Consulta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="orderby" Type="varchar" Mode="In" />
+    <Parameter Name="orderbyeDirection" Type="bit" Mode="In" />
+    <Parameter Name="Cliente_Nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_Color_Cata_Consulta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_Comprobantes_Cata_Lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_Comprobantes_Secuencia_Consulta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Comprobante_id" Type="int" Mode="In" />
+    <Parameter Name="Empresa_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_Empleados_Lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Empresa_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_Marcas_Lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_Modelos_Lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Marca_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_Tipo_Transaccion_Lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_Tipo_Vehiculo_Lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ServisSaltesaModelStoreContainer">
+    <EntitySet Name="Categorias_Trans" EntityType="Self.Categorias_Trans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clientes_Trans" EntityType="Self.Clientes_Trans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Color_Cata" EntityType="Self.Color_Cata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comprobantes_Cata" EntityType="Self.Comprobantes_Cata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleados_Trans" EntityType="Self.Empleados_Trans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresas_Trans" EntityType="Self.Empresas_Trans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Facturas_Detalles_Trans" EntityType="Self.Facturas_Detalles_Trans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Facturas_Trans" EntityType="Self.Facturas_Trans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventarios_Trans" EntityType="Self.Inventarios_Trans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marcas_Cata" EntityType="Self.Marcas_Cata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modelos_Cata" EntityType="Self.Modelos_Cata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Productos_Trans" EntityType="Self.Productos_Trans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Comprobantes_Trans" EntityType="Self.Tipo_Comprobantes_Trans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Transaccion_Cata" EntityType="Self.Tipo_Transaccion_Cata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Vehiculo_Cata" EntityType="Self.Tipo_Vehiculo_Cata" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Empleados__Empre__30C33EC3" Association="Self.FK__Empleados__Empre__30C33EC3">
+      <End Role="Empresas_Trans" EntitySet="Empresas_Trans" />
+      <End Role="Empleados_Trans" EntitySet="Empleados_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___Clien__1332DBDC" Association="Self.FK__Facturas___Clien__1332DBDC">
+      <End Role="Clientes_Trans" EntitySet="Clientes_Trans" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___Clien__3493CFA7" Association="Self.FK__Facturas___Clien__3493CFA7">
+      <End Role="Clientes_Trans" EntitySet="Clientes_Trans" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___Clien__503BEA1C" Association="Self.FK__Facturas___Clien__503BEA1C">
+      <End Role="Clientes_Trans" EntitySet="Clientes_Trans" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___Marca__66603565" Association="Self.FK__Facturas___Marca__66603565">
+      <End Role="Marcas_Cata" EntitySet="Marcas_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___Model__123EB7A3" Association="Self.FK__Facturas___Model__123EB7A3">
+      <End Role="Modelos_Cata" EntitySet="Modelos_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___Model__339FAB6E" Association="Self.FK__Facturas___Model__339FAB6E">
+      <End Role="Modelos_Cata" EntitySet="Modelos_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___Model__4F47C5E3" Association="Self.FK__Facturas___Model__4F47C5E3">
+      <End Role="Modelos_Cata" EntitySet="Modelos_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___TipoT__14270015" Association="Self.FK__Facturas___TipoT__14270015">
+      <End Role="Tipo_Transaccion_Cata" EntitySet="Tipo_Transaccion_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___TipoT__3587F3E0" Association="Self.FK__Facturas___TipoT__3587F3E0">
+      <End Role="Tipo_Transaccion_Cata" EntitySet="Tipo_Transaccion_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___TipoT__51300E55" Association="Self.FK__Facturas___TipoT__51300E55">
+      <End Role="Tipo_Transaccion_Cata" EntitySet="Tipo_Transaccion_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___TipoV__151B244E" Association="Self.FK__Facturas___TipoV__151B244E">
+      <End Role="Tipo_Vehiculo_Cata" EntitySet="Tipo_Vehiculo_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___TipoV__367C1819" Association="Self.FK__Facturas___TipoV__367C1819">
+      <End Role="Tipo_Vehiculo_Cata" EntitySet="Tipo_Vehiculo_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facturas___TipoV__5224328E" Association="Self.FK__Facturas___TipoV__5224328E">
+      <End Role="Tipo_Vehiculo_Cata" EntitySet="Tipo_Vehiculo_Cata" />
+      <End Role="Facturas_Trans" EntitySet="Facturas_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Modelos_C__Regis__5629CD9C" Association="Self.FK__Modelos_C__Regis__5629CD9C">
+      <End Role="Marcas_Cata" EntitySet="Marcas_Cata" />
+      <End Role="Modelos_Cata" EntitySet="Modelos_Cata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Trans_Categorias_Trans" Association="Self.FK_Productos_Trans_Categorias_Trans">
+      <End Role="Categorias_Trans" EntitySet="Categorias_Trans" />
+      <End Role="Productos_Trans" EntitySet="Productos_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Trans_Color_Cata" Association="Self.FK_Productos_Trans_Color_Cata">
+      <End Role="Color_Cata" EntitySet="Color_Cata" />
+      <End Role="Productos_Trans" EntitySet="Productos_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Trans_Productos_Trans" Association="Self.FK_Productos_Trans_Productos_Trans">
+      <End Role="Productos_Trans" EntitySet="Productos_Trans" />
+      <End Role="Productos_Trans1" EntitySet="Productos_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tipo_Comprobantes_Trans_Comprobantes_Cata" Association="Self.FK_Tipo_Comprobantes_Trans_Comprobantes_Cata">
+      <End Role="Comprobantes_Cata" EntitySet="Comprobantes_Cata" />
+      <End Role="Tipo_Comprobantes_Trans" EntitySet="Tipo_Comprobantes_Trans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tipo_Comprobantes_Trans_Empresas_Trans" Association="Self.FK_Tipo_Comprobantes_Trans_Empresas_Trans">
+      <End Role="Empresas_Trans" EntitySet="Empresas_Trans" />
+      <End Role="Tipo_Comprobantes_Trans" EntitySet="Tipo_Comprobantes_Trans" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,36 @@
+@import  "~@ng-select/ng-select/themes/default.theme.css";
+// @import "~@ng-select/ng-select/themes/material.theme.css" ;
+
+@import '~ngx-toastr/toastr';
+
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #eeeff4;
+}
+
+.ng-select.custom {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 5px 5px 5px 5px;
+  }
+
+.ng-select.custom .ng-select-container {
+  min-height: 45px;
+  border-radius: 5px 5px 7px 7px;
+  }
+
+  .Colorheader{
+    background: #d1d3d1 ;
+  }
+
+
+#hr{
+  background-color: rgba(240, 17, 17, 0.288);
+  border-radius: 50px;
+}

@@ -1,0 +1,105 @@
+<div class="content">
+  <div class="col-lg-12">
+
+    <div class="card" >
+
+      <div class="card-header Colorheader">
+        <strong>Crear Cliente</strong>
+    </div>
+    <div class="card-body card-block">
+    <form [formGroup]="FormCliente" action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+      <div class="row form-group" >
+        <div class="col col-md-1"><label for="text-input" class=" form-control-label">Cliente</label></div>
+        <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" formControlName="Cliente_Nombre" placeholder="Nombre" class="form-control">
+        <control-messages [control]="FormCliente.controls.Cliente_Nombre.invalid"></control-messages>
+        </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col col-md-1"><label for="text-input" class=" form-control-label">Apellido</label></div>
+      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" formControlName="Cliente_Apellido" placeholder="Apellido" class="form-control">
+       </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col col-md-1"><label for="text-input" class=" form-control-label">Correo</label></div>
+    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" formControlName="Cliente_Email" placeholder="Correo" class="form-control">
+     </div>
+</div>
+
+<div class="row form-group">
+  <div class="col col-md-1"><label for="text-input" class=" form-control-label">RNC</label></div>
+  <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" formControlName="Cliente_RNC" placeholder="RNC" class="form-control">
+   </div>
+</div>
+
+
+
+<div class="row form-group">
+  <div class="col-md-7 mb-6">
+    <ng-select [items]="MarcaCliente" class="custom" bindLabel="Marca_Nombre" bindValue="Marca_id"  (change)="CargarModelo($event.Marca_id)"
+    placeholder="Marcas" formControlName="Marca_id" ></ng-select>
+</div>
+
+<div class="col-md-8 mb-6">
+<ng-select [items]="ModeloCliente" class="custom"   bindLabel="Modelo_Nombre" bindValue="Modelo_id"  [disabled]="HabilitarModelo" placeholder="Modelos" formControlName="Modelo_id">
+
+</ng-select>
+</div>
+</div>
+
+  <div class="row form-group">
+    <div class="col col-md-1"><label for="text-input" class=" form-control-label">Telefono</label></div>
+    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" mask="(000)-000-0000" formControlName="Cliente_Telefono" placeholder="Telefono" class="form-control">
+      </div>
+</div>
+
+<div class="row form-group">
+  <div class="col col-md-1"><label for="text-input" class=" form-control-label">Celular</label></div>
+  <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" mask="(000)-000-0000" formControlName="Cliente_Celular" placeholder="Celular" class="form-control">
+    </div>
+</div>
+
+
+<div class="row form-group">
+  <div class="col col-md-1"><label for="textarea-input" class=" form-control-label">Direccion</label></div>
+  <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input" cols="5" rows="5" formControlName="Cliente_Direccion"  placeholder="Direccion..." class="form-control"></textarea></div>
+</div>
+
+<div class="card-body">
+  <div class="col-md-6 mb-3">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticModal" [disabled]="!FormCliente.valid" >Guardar</button>
+  &nbsp;
+ <button type="button" class="btn btn-danger" (click)="CancelarForm()">Cancelar</button>
+</div>
+</div>
+
+      </form>
+</div>
+  </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticModalLabel">Confirmacion</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <p>
+              Esta seguro de que desea guardar el Cliente
+             </p>
+         </div>
+         <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="GuardarCliente()" data-dismiss="modal">Guardar</button>
+
+      </div>
+  </div>
+</div>
+</div>
