@@ -28,7 +28,7 @@ export let APIURL = {
     Proveedores: {
       Consulta: BASEURL + 'Proveedores_Lista?',
       Agregar: BASEURL + 'Proveedor_Agregar',
-      detalle: BASEURL + '',
+      detalle: BASEURL + 'Proveedor_Detalle?proveedorID=',
       Editar: BASEURL + '',
       Eliminar: BASEURL + ''
     }

@@ -23,10 +23,13 @@ namespace ServisSaltesa.Models.Data
         public string Proveedor_Telefono { get; set; }
         public string Proveedor_Celular { get; set; }
         public string Proveedor_RNC { get; set; }
+        
         public Int32 Categoria_id { get; set; }
+       
         [NotMapped]
         public Int32? Cantidad_Registros { get; set; }
 
+        [NotMapped]
         public Int32? Ultima_Linea { get; set; }
         [NotMapped]
         public Int32? Linea { get; set; }

@@ -63,7 +63,7 @@ namespace ServisSaltesa.Models
                 {
                     db.Database.Connection.Open();
                     var detalle = db.Database.SqlQuery<Proveedores_Trans>("Proc_Proveedor_Detalle_Consulta @proveedor_id",
-                        new SqlParameter("proveedor_id", proveedorID)).FirstOrDefault();
+                        new SqlParameter("@proveedor_id", proveedorID)).FirstOrDefault();
 
 
                     return detalle;

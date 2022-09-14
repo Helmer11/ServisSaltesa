@@ -7,7 +7,7 @@ namespace ServisSaltesa.Models.Data
 {
     public class Proveedores_Trans_Result
     {
-
+        public int Proveedor_id { get; set; }
         public string Proveedor_Nombre { get; set; }
         public string Proveedor_RNC { get; set; }
         public string Proveedor_Email { get; set; }

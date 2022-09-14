@@ -29,11 +29,12 @@ export class ClienteDetalleComponent implements OnInit {
     marcaID: number;
     idmarca:number;
     idmodelo:number;
-  
+
   constructor(private _formB: FormBuilder,
               private _router: ActivatedRoute,
               private _detalleServis: ClienteService,
               private _toast: ToastrService) {
+
                this.detalleID = Number(this._router.snapshot.params.id);
 
                }
@@ -77,11 +78,11 @@ export class ClienteDetalleComponent implements OnInit {
       Marca_id: this.idmarca,
       Modelo_id: this.idmodelo,
     })
-    
+
   }, error =>{
         this._toast.error("Hubo un error al cargar el detalle del Cliente", "Error");
   });
-  
+
  }
 
 
@@ -92,19 +93,14 @@ public async getVehiculo_Cliente() {
       this.idmarca = element.Marca_id;
       this.idmodelo = element.Modelo_id;
     });
-    this._detalleServis.CargarModelo(this.idmarca).subscribe(res => 
+    this._detalleServis.CargarModelo(this.idmarca).subscribe(res =>
       this.detalleModelo = res as Modelos_Cata[]);
   })
-     
+
 }
 
 public Retornar(){
   window.history.back();
 }
-
-
-
-
-
 
  }
