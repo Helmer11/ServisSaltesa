@@ -17,6 +17,7 @@ export class ListaClientesComponent implements OnInit {
     Linea: number;
     Ultima_Linea: number;
     indice = 1;
+    loading: boolean =  false;
 
   constructor(private _formB: FormBuilder,
               public _ServicioCliente: ClienteService,
@@ -50,6 +51,8 @@ public BuscarCliente(Busaqueda: number){
 }
 
   public ListaCliente(){
+    this.loading = true;
+    setTimeout(() => {
       this._ServicioCliente.CargarListaCliente(this._ServicioCliente.FiltroCliente)
       .subscribe((Client: Cliente[])=>{
         this.ClienteLista  = Client;
@@ -58,8 +61,10 @@ public BuscarCliente(Busaqueda: number){
             this.Linea = this.ClienteLista[0].Linea;
             this.Ultima_Linea = this.ClienteLista[0].Ultima_Linea;
         }
-
       });
+      this.loading = false;
+    }, 3000);
+
   }
 
   public ResetForm(){

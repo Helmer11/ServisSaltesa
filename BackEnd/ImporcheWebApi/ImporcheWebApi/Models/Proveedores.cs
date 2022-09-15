@@ -120,6 +120,10 @@ namespace ServisSaltesa.Models
                 using (var db = new ServisSaltesaEntity())
                 {
                     db.Database.Connection.Open();
+                    var resultado = db.Proveedor.SingleOrDefault(c => c.Proveedor_id == pro.Proveedor_id);
+                    
+                    if( resultado != null)
+                    {
                     var _proveedor = new Proveedores_Trans()
                     {
                         Proveedor_Nombre = pro.Proveedor_Nombre,
@@ -130,9 +134,11 @@ namespace ServisSaltesa.Models
                         Proveedor_RNC = pro.Proveedor_RNC,
                         Registro_Usuario = pro.Registro_Usuario,
                     };
-
                     db.Proveedor.Add(_proveedor);
                     db.SaveChanges();
+
+                    }
+
                 }
             }
             catch (EntityException ee)

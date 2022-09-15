@@ -188,7 +188,7 @@ namespace ImporcheWebApi.Models
 
         }
 
-        public void RemoverCliente(Clientes_Trans cli)
+        public void InactivaCliente(Clientes_Trans cli)
         {
             try
             {

@@ -18,7 +18,7 @@
                 </div>
 
                 <!--col-6 d-grid gap-2 d-md-block-->
-                
+
 
                 <div class="col-7" *ngIf="this.ClienteLista?.length > 0">
                     <span>{{cantidad_Registro}} registro(s)</span>
@@ -50,7 +50,12 @@
                               <th scope="col"></th>
                           </tr>
                       </thead>
+
                 <tbody>
+                  <div class="loading" *ngIf="loading" >
+                    <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                  </div>
+
                           <tr *ngFor="let c of ClienteLista | paginate: { itemsPerPage:_ServicioCliente.FiltroCliente.PageSize, currentPage: indice, totalItems: cantidad_Registro}">
                               <!-- <th scope="row">1</th> -->
                               <td>{{c?.Cliente_Nombre}}</td>
@@ -62,6 +67,7 @@
                               <td><button class="btn btn-success" [routerLink]="'detalle/'+ c.Cliente_id"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
                               <td><button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                           </tr>
+
                   </tbody>
           </table>
       </div>

@@ -9,16 +9,17 @@ import { ListaProvedoresComponent } from "./Lista-Provedores.component";
 import { ProvedoresComponent } from "./Provedores.component";
 import { NgxMaskModule } from 'ngx-mask';
 import { ProveedorDetalleComponent } from "./Proveedores-detalle.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserModule } from "@angular/platform-browser";
 
 
 @NgModule({
   imports:[
     CommonModule,
-    HttpClientModule,
     FormsModule,
-    NgxPaginationModule,
     ReactiveFormsModule,
     NgSelectModule,
+    NgxPaginationModule,
     NgxMaskModule.forRoot(),
     RouterModule.forChild([
       {

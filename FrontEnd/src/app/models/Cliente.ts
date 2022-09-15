@@ -18,7 +18,4 @@ export class Cliente {
   public  Registro_Usuario?: string;
   public Registro_Fecha?: Date;
 
-
-
-
 }

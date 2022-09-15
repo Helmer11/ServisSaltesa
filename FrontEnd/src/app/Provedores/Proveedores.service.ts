@@ -58,6 +58,11 @@ public proveedor_Detalle(proveID: Number){
 }
 
 
+public editaProveedor(prov: Proveedor_Trans){
+  const headerOptions = new HttpHeaders({'Content-Type':'application/json'});
+  return this._htpp.post(APIURL.Proveedores.Editar, prov , { headers: headerOptions })
+}
+
 
 
 }

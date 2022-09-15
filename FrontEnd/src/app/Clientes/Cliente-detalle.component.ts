@@ -34,9 +34,7 @@ export class ClienteDetalleComponent implements OnInit {
               private _router: ActivatedRoute,
               private _detalleServis: ClienteService,
               private _toast: ToastrService) {
-
                this.detalleID = Number(this._router.snapshot.params.id);
-
                }
 
   ngOnInit() {
@@ -82,9 +80,7 @@ export class ClienteDetalleComponent implements OnInit {
   }, error =>{
         this._toast.error("Hubo un error al cargar el detalle del Cliente", "Error");
   });
-
  }
-
 
 public async getVehiculo_Cliente() {
   this._detalleServis.getVehiculoCliente(this.detalleID).subscribe(res => {
@@ -98,6 +94,32 @@ public async getVehiculo_Cliente() {
   })
 
 }
+public EditaCliente(){
+  let dataCliente = {
+    Cliente_id: this.detalleID,
+    Cliente_Nombre: this.FormDetalle.controls.Cliente_Nombre.value,
+    Cliente_Apellido: this.FormDetalle.controls.Cliente_Apellido.value,
+    Cliente_Email: this.FormDetalle.controls.Cliente_Email.value,
+    Cliente_Direccion: this.FormDetalle.controls.Cliente_Direccion.value,
+    Cliente_RNC: this.FormDetalle.controls.Cliente_RNC.value,
+    Marca_id: this.FormDetalle.controls.Marca_id.value,
+    Modelo_id: this.FormDetalle.controls.Modelo_id.value,
+    Cliente_Telefono: this.FormDetalle.controls.Cliente_Telefono.value,
+    Cliente_Celular: this.FormDetalle.controls.Cliente_Celular.value,
+    Registro_Usuario: 'hsalas'
+  }
+
+  this._detalleServis.EditaCliente(dataCliente).subscribe(res => {
+    this._toast.success("Se ha actualizado los datos del cliente","Exito");
+  }, err =>{
+    this._toast.error("No se pudo actualizar los datos", "Error");
+  })
+
+
+
+}
+
+
 
 public Retornar(){
   window.history.back();

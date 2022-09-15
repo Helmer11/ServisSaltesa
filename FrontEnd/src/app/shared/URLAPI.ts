@@ -22,14 +22,14 @@ export let APIURL = {
       Agregar: BASEURL + 'AgregarCliente',
       detalle: BASEURL + 'detalleCliente?',
       detalleVehiculo: BASEURL + 'VehiculoCliente?Cliente_id=',
-      Editar : BASEURL + '',
+      Editar : BASEURL + 'EditaCliente',
       Eliminar: BASEURL + ''
     },
     Proveedores: {
       Consulta: BASEURL + 'Proveedores_Lista?',
       Agregar: BASEURL + 'Proveedor_Agregar',
       detalle: BASEURL + 'Proveedor_Detalle?proveedorID=',
-      Editar: BASEURL + '',
+      Editar: BASEURL + 'Proveedor_Edita',
       Eliminar: BASEURL + ''
     }
 

@@ -14,6 +14,8 @@ namespace ServisSaltesa.Interfaces
         Cliente_Trans_Result DetalleCliente(int cliente_id);
         IEnumerable<Cliente_Vehiculo_Result> Cliente_Vehiculo(int Cliente_id);
 
+        void EditarCliente(Clientes_Trans cli);
+        void InactivaCliente(Clientes_Trans cli);
 
 
     }

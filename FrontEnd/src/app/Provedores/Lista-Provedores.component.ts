@@ -17,6 +17,7 @@ export class ListaProvedoresComponent implements OnInit {
   cantidad_Registro:number;
   Ultima_Linea: number;
   indice = 1;
+  loading: boolean = false
 
   constructor(private _formB: FormBuilder,
               public _ProvedorServis: ProveedoresService,
@@ -38,30 +39,32 @@ export class ListaProvedoresComponent implements OnInit {
   }
 
 
-  public BuscarProveedor(Busaqueda: number){
+  public BuscarProveedor( Busaqueda: number ){
 
-    if( this.Linea ===0 || Busaqueda === 0){
+    if( this.Linea ===0 || Busaqueda === 0 ){
       this.indice = 1;
     }
     this._ProvedorServis.FiltroProveedor.Proveedor_Nombre = this.ListaProveForm.value["Proveedor_Nombre"];
     this._ProvedorServis.FiltroProveedor.PageSize =  this.ListaProveForm.value["PageSize"];
     this._ProvedorServis.FiltroProveedor.PageIndex = this.indice
-
-
   }
 
 
 
   public CargarListaProveedor(){
-    this._ProvedorServis.ListaProveedores(this._ProvedorServis.FiltroProveedor).subscribe((proveer: Proveedor_Trans[])=>{
-
-      this.ProveedoresLista = proveer;
-      if ( this.ProveedoresLista.length > 0) {
-        this.cantidad_Registro =  this.ProveedoresLista[0].Cantidad_Registros;
-        this.Linea =  this.ProveedoresLista[0].Linea;
-        this.Ultima_Linea =  this.ProveedoresLista[0].Ultima_Linea;
-    }
-  });
+    this.loading = true;
+    setTimeout(() => {
+      this._ProvedorServis.ListaProveedores(this._ProvedorServis.FiltroProveedor)
+      .subscribe(( proveer: Proveedor_Trans[] ) =>{
+          this.ProveedoresLista = proveer;
+        if ( this.ProveedoresLista.length > 0) {
+          this.cantidad_Registro =  this.ProveedoresLista[0].Cantidad_Registros;
+          this.Linea =  this.ProveedoresLista[0].Linea;
+          this.Ultima_Linea =  this.ProveedoresLista[0].Ultima_Linea;
+      }
+    });
+  this.loading = false;
+    }, 3000);
 
   }
 

@@ -12,5 +12,6 @@ namespace ServisSaltesa.Interfaces
         IEnumerable<Proveedores_Trans_Result> Lista_Proveedores(int PageIndex, int PageSize, string orderby, bool orderbyeDirection, string Proveedor_Nombre);
         Proveedores_Trans DetalleProveedor(int proveedorID);
         void AgregarProveedor(Proveedores_Trans pro);
+        void EditarProveedor(Proveedores_Trans pro);
     }
 }

@@ -49,5 +49,14 @@ namespace ServisSaltesa.Controllers
         }
 
 
+        [System.Web.Http.Route("api/Acceso/Proveedor_Edita")]
+        [System.Web.Http.HttpPost]
+        public HttpResponseMessage EditaProveedor(Proveedores_Trans prov)
+        {
+            proveedor.EditarProveedor(prov);
+
+            return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Proveedor Actualizado");
+        }
+
     }
 }

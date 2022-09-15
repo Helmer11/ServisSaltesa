@@ -23,8 +23,17 @@ namespace ImporcheWebApi.Controllers
 
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, client);
         }
-    
-    [System.Web.Http.Route("api/Acceso/AgregarCliente")]
+
+        [System.Web.Http.Route("api/Acceso/detalleCliente")]
+        [System.Web.Http.HttpGet]
+        public HttpResponseMessage Cliente_Detalle(int cliente_id)
+        {
+           var client =  cliente.DetalleCliente(cliente_id);
+
+            return Request.CreateResponse(System.Net.HttpStatusCode.OK, client);
+        }
+
+     [System.Web.Http.Route("api/Acceso/AgregarCliente")]
     [System.Web.Http.HttpPost]
     public HttpResponseMessage GuardarCliente(Clientes_Trans clien)
         {
@@ -33,24 +42,39 @@ namespace ImporcheWebApi.Controllers
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Se ha guardado el cliente");
         }
     
-    [System.Web.Http.Route("api/Acceso/detalleCliente")]
-    [System.Web.Http.HttpGet]
-    public HttpResponseMessage Cliente_Detalle(int cliente_id)
+    [System.Web.Http.Route("api/Acceso/EditaCliente")]
+    [System.Web.Http.HttpPost]
+    public HttpResponseMessage Cliente_Edita(Clientes_Trans cliente_id)
         {
-            var detalle = cliente.DetalleCliente(cliente_id);
+             cliente.EditarCliente(cliente_id);
 
-            return Request.CreateResponse(System.Net.HttpStatusCode.OK, detalle);
+            return Request.CreateResponse(System.Net.HttpStatusCode.OK, " ");
         }
 
 
-    [System.Web.Http.Route("api/Acceso/VehiculoCliente")]
+    [System.Web.Http.Route("api/Acceso/InactivaCliente")]
     [System.Web.Http.HttpGet]
-    public HttpResponseMessage Cliente_Vehiculos(int cliente_id)
+    public HttpResponseMessage Cliente_Inactiva(Clientes_Trans cliente_id)
     {
-        var carros = cliente.Cliente_Vehiculo(cliente_id);
-        return Request.CreateResponse(System.Net.HttpStatusCode.OK, carros);
+        cliente.InactivaCliente(cliente_id);
+        return Request.CreateResponse(System.Net.HttpStatusCode.OK, "");
     }
 
+
+
+
+
+
+
+
+        //---------------------------------------------- controladores para datos del vehiculo---------------------------------
+        [System.Web.Http.Route("api/Acceso/VehiculoCliente")]
+        [System.Web.Http.HttpGet]
+        public HttpResponseMessage Cliente_vehiculo(int cliente_id)
+        {
+            var vehiculo = cliente.Cliente_Vehiculo(cliente_id);
+            return Request.CreateResponse(System.Net.HttpStatusCode.OK, vehiculo);
+        }
     }
 
 

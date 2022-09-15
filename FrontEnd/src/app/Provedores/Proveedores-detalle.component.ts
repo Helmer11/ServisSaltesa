@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { Categoria_Cata } from "../models/Categoria_Cata";
-import { Proveedor_Trans } from "../models/Proveedor_Trans";
+import { Proveedor_Trans } from '../models/Proveedor_Trans';
 import { ProveedoresService } from "./Proveedores.service";
 
 
@@ -65,10 +65,30 @@ import { ProveedoresService } from "./Proveedores.service";
           Proveedor_Direccion: proveDetalle.Proveedor_Direccion,
           Categoria_id: proveDetalle.Categoria_id
         })
-
-
       })
     }
+
+  public EditaProveedor(){
+    let prove = {
+      Proveedor_id: this.detalleID,
+      Proveedor_Nombre: this.ProvDetalleForm.controls.Proveedor_Nombre.value,
+      Proveedor_RNC: this.ProvDetalleForm.controls.Proveedor_RNC.value,
+      Proveedor_Email: this.ProvDetalleForm.controls.Proveedor_Email.value,
+      Proveedor_Telefono: this.ProvDetalleForm.controls.Proveedor_Telefono.value,
+      Proveedor_Celular: this.ProvDetalleForm.controls.Proveedor_Celular.value,
+      Proveedor_Direccion: this.ProvDetalleForm.controls.Proveedor_Direccion.value,
+      Categoria_id: this.ProvDetalleForm.controls.Categoria_id.value
+    }
+  this._ServiDetalle.editaProveedor(prove).subscribe(res =>{
+    this._toast.success("Se actualizo el Proveedor", "Edxito");
+  }, err => {
+    this._toast.error("No se pudo actualizar el proveedor", "Error");
+  })
+
+  }
+
+
+
 
 
     public Retornar(){

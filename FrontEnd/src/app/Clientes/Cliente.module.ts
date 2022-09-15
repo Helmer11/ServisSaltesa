@@ -1,26 +1,29 @@
-import { Component, NgModule } from '@angular/core';
+
+//modulos
+import {  NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ClientesComponent } from './Clientes.component';
-import { ListaClientesComponent } from './lista-Clientes.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {  NgSelectModule } from '@ng-select/ng-select';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ClienteDetalleComponent } from './Cliente-detalle.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxMaskModule } from 'ngx-mask'
 
 
+//componentes
+import { ClientesComponent } from './Clientes.component';
+import { ListaClientesComponent } from './lista-Clientes.component';
+import { ClienteDetalleComponent } from './Cliente-detalle.component';
+
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,
     FormsModule,
-    NgxPaginationModule,
     ReactiveFormsModule,
     NgSelectModule,
+    NgxPaginationModule,
+    NgxMaskModule.forRoot(),
     RouterModule.forChild([
       {
         path: '',
@@ -35,14 +38,12 @@ import { NgxMaskModule } from 'ngx-mask'
         component: ClientesComponent
       },
     ]),
-    NgxMaskModule.forRoot(),
   ],
   exports:[],
-
   declarations: [
     ClientesComponent,
     ListaClientesComponent,
-    ClienteDetalleComponent
+    ClienteDetalleComponent,
   ]
 })
 export class ClienteModule { }

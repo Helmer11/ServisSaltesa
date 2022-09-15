@@ -56,6 +56,11 @@ public DetalleCliente(clienteID: number){
 return this._http.get(APIURL.Cliente.detalle + "cliente_id="+ clienteID);
 }
 
+public EditaCliente(client: Cliente){
+  const headerOptions = new HttpHeaders({'Content-Type':'application/json'});
+  return this._http.post(APIURL.Cliente.Editar , client, {headers: headerOptions})
+}
+
 
 public ResetearForm(){
 

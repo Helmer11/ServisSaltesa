@@ -17,7 +17,7 @@
             <button class="btn  btn-info m-1" type="button" (click)="ResetForm()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
           </div>
 
-        
+
 
 
         <div class="col-7" *ngIf="this.ProveedoresLista?.length > 0">
@@ -51,7 +51,11 @@
                       <th scope="col"></th>
                   </tr>
               </thead>
+
               <tbody>
+                <div class="loading" *ngIf="loading" >
+                  <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
                 <tr *ngFor="let p of ProveedoresLista | paginate: { itemsPerPage: _ProvedorServis.FiltroProveedor.PageSize, currentPage: indice, totalItems: cantidad_Registro}">
                     <!-- <th scope="row">1</th> -->
                     <td>{{p?.Proveedor_Nombre}}</td>

@@ -12,9 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
 import {NgxPaginationModule} from 'ngx-pagination';
-import { ControlMessages } from './shared/control-mesages.component';
 
 
 // Modulo
@@ -24,7 +22,7 @@ import { AppComponent } from './app.component';
 import { ClienteModule } from './Clientes/Cliente.module';
 import { ProveedorModule } from './Provedores/Proveedores.module';
 import { SharedModule } from './shared/shared.module';
-import { RouterModule } from '@angular/router';
+
 
 
 
@@ -33,12 +31,12 @@ import { RouterModule } from '@angular/router';
     AppComponent,
     FacturacionComponent,
     LayoutComponent,
-    ControlMessages
+    //LoadingComponent,
 
    ],
   imports: [
-    BrowserModule,
-    CommonModule,
+    //BrowserModule,
+    //CommonModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,

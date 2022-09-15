@@ -45,7 +45,6 @@ public Catalogo(){
 
   public AgregarProveedor(){
     let prove = {
-
       Proveedor_Nombre: this.FormProveedor.controls.Proveedor_Nombre.value ,
       Proveedor_RNC: this.FormProveedor.controls.Proveedor_RNC.value,
       Proveedor_Email: this.FormProveedor.controls.Proveedor_Email.value ,
@@ -55,7 +54,6 @@ public Catalogo(){
       Categoria_id:  this.FormProveedor.controls.Categoria_id.value,
       Registro_Usuario: 'hsalas'
     }
-
 
     this._ProveedorServis.guardarProveedor(prove).subscribe(res=>{
         this._toast.success("El Proveedor ha sido guardado", "Exito");
@@ -68,10 +66,5 @@ public Catalogo(){
     );
 
   }
-
- 
-
-
-
 
 }
