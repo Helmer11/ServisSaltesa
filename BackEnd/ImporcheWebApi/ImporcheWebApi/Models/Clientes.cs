@@ -96,23 +96,11 @@ namespace ImporcheWebApi.Models
                 using(var db = new ServisSaltesaEntity())
                 {
                     db.Database.Connection.Open();                
-
-                    var _client = new Clientes_Trans()
-                    {
-                        Cliente_Nombre = cli.Cliente_Nombre,
-                        Cliente_Apellido = cli.Cliente_Apellido,
-                        Cliente_Telefono = cli.Cliente_Telefono,
-                        Cliente_Direccion = cli.Cliente_Direccion,
-                        Cliente_Email = cli.Cliente_Email,
-                        Cliente_Celular = cli.Cliente_Celular,
-                        Cliente_RNC = cli.Cliente_RNC,
-                        Registro_Usuario = cli.Registro_Usuario,
-                    };
-
-                    db.Cliente.Add(_client);
+                    db.Cliente.Add(cli);
                     db.SaveChanges();
 
                     int _idCliente = db.Cliente.Select(p => p.Cliente_id).Max();
+
                     var _vehiculo = new Cliente_Vehiculo_Trans()
                     {
                         Cliente_id = _idCliente,
@@ -148,6 +136,7 @@ namespace ImporcheWebApi.Models
                     db.Database.Connection.Open();
                     var resultado = db.Cliente.SingleOrDefault(b => b.Cliente_id == cli.Cliente_id);
 
+                    db.Entry(cli).State = System.Data.Entity.EntityState.Modified;
                     if(resultado != null)
                     {
                         resultado.Cliente_Nombre = cli.Cliente_Nombre;
@@ -169,8 +158,6 @@ namespace ImporcheWebApi.Models
                         _idCliente.Modelo_id = cli.Modelo_id;
                         db.SaveChanges();
                     }
-
-                
                 }
             }
             catch (EntityException ee)
@@ -195,31 +182,16 @@ namespace ImporcheWebApi.Models
                 using (var db = new ServisSaltesaEntity())
                 {
                     db.Database.Connection.Open();
-                    var resultado = db.Cliente.SingleOrDefault(b => b.Cliente_id == cli.Cliente_id);
-
-                    if (resultado != null)
-                    {
-                        resultado.Cliente_Nombre = cli.Cliente_Nombre;
-                        resultado.Cliente_Apellido = cli.Cliente_Apellido;
-                        resultado.Cliente_Telefono = cli.Cliente_Telefono;
-                        resultado.Cliente_Direccion = cli.Cliente_Direccion;
-                        resultado.Cliente_Email = cli.Cliente_Email;
-                        resultado.Cliente_Celular = cli.Cliente_Celular;
-                        resultado.Cliente_RNC = cli.Cliente_RNC;
-                        resultado.Registro_Usuario = cli.Registro_Usuario;
+                        db.Entry(cli.Registro_Estado).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
-                    }
 
                     var _idCliente = db.Vehiculo.SingleOrDefault(p => p.Cliente_id == cli.Cliente_id);
 
                     if (_idCliente != null)
                     {
-                        _idCliente.Marca_id = cli.Marca_id;
-                        _idCliente.Modelo_id = cli.Modelo_id;
+                        db.Entry(_idCliente.Registro_Estado).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
                     }
-
-
                 }
             }
             catch (EntityException ee)

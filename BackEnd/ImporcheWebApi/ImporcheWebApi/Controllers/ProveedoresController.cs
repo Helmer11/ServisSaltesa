@@ -43,7 +43,11 @@ namespace ServisSaltesa.Controllers
         [System.Web.Http.HttpPost]
         public HttpResponseMessage anadirProveedor(Proveedores_Trans prov)
         {
-            proveedor.AgregarProveedor(prov);
+            if (ModelState.IsValid)
+            {
+                proveedor.AgregarProveedor(prov);
+
+            }
 
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Proveedor Guardado");
         }
@@ -53,10 +57,26 @@ namespace ServisSaltesa.Controllers
         [System.Web.Http.HttpPost]
         public HttpResponseMessage EditaProveedor(Proveedores_Trans prov)
         {
+            if (ModelState.IsValid)
+            {
             proveedor.EditarProveedor(prov);
+
+            }
 
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Proveedor Actualizado");
         }
 
+        [System.Web.Http.Route("api/Acceso/Proveedor_Inactivar")]
+        [System.Web.Http.HttpPost]
+        public HttpResponseMessage InactivaProveedor(Proveedores_Trans prov)
+        {
+            if (ModelState.IsValid)
+            {
+                proveedor.InactivarProveedor(prov);
+
+            }
+
+            return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Proveedor Eliminado");
+        }
     }
 }

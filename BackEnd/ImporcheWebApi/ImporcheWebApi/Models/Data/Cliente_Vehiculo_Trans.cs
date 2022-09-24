@@ -15,10 +15,15 @@ namespace ServisSaltesa.Models.Data
         public int Cliente_id { get; set; }
         public int Marca_id { get; set; }
         public int Modelo_id { get; set; }
+   
+        public bool Registro_Estado { get; set; }
+
+        public string Registro_Usuario { get; set; }
+
+        public System.DateTime Registro_Fecha { get; set; }
 
 
 
-    
     }
 
 }

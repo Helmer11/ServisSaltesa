@@ -39,7 +39,6 @@ namespace ServisSaltesa.Models
                                     new SqlParameter("@Proveedor_Nombre", _ProveedorNombre)
                                     ).ToList();
                     return proveedor;
-
                 }
             
             }catch(EntityException ee)
@@ -65,7 +64,6 @@ namespace ServisSaltesa.Models
                     var detalle = db.Database.SqlQuery<Proveedores_Trans>("Proc_Proveedor_Detalle_Consulta @proveedor_id",
                         new SqlParameter("@proveedor_id", proveedorID)).FirstOrDefault();
 
-
                     return detalle;
                 }
             }catch (EntityException ee)
@@ -86,19 +84,7 @@ namespace ServisSaltesa.Models
                 using (var db = new ServisSaltesaEntity())
                 {
                     db.Database.Connection.Open();
-                    var _proveedor = new Proveedores_Trans()
-                    {
-                        Proveedor_Nombre = pro.Proveedor_Nombre,
-                        Proveedor_Telefono = pro.Proveedor_Telefono,
-                        Proveedor_Direccion = pro.Proveedor_Direccion,
-                        Proveedor_Email = pro.Proveedor_Email,
-                        Proveedor_Celular = pro.Proveedor_Celular,
-                        Proveedor_RNC = pro.Proveedor_RNC,
-                        Categoria_id = pro.Categoria_id,
-                        Registro_Usuario = pro.Registro_Usuario,
-                    };
-
-                    db.Proveedor.Add(_proveedor);
+                    db.Proveedor.Add(pro);
                     db.SaveChanges();
                 }
             }
@@ -120,24 +106,34 @@ namespace ServisSaltesa.Models
                 using (var db = new ServisSaltesaEntity())
                 {
                     db.Database.Connection.Open();
-                    var resultado = db.Proveedor.SingleOrDefault(c => c.Proveedor_id == pro.Proveedor_id);
-                    
-                    if( resultado != null)
-                    {
-                    var _proveedor = new Proveedores_Trans()
-                    {
-                        Proveedor_Nombre = pro.Proveedor_Nombre,
-                        Proveedor_Telefono = pro.Proveedor_Telefono,
-                        Proveedor_Direccion = pro.Proveedor_Direccion,
-                        Proveedor_Email = pro.Proveedor_Email,
-                        Proveedor_Celular = pro.Proveedor_Celular,
-                        Proveedor_RNC = pro.Proveedor_RNC,
-                        Registro_Usuario = pro.Registro_Usuario,
-                    };
-                    db.Proveedor.Add(_proveedor);
+                    //db.Proveedor.Add(pro);
+                    //db.Proveedor.Attach(entidad);
+                    db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
+              
+                }
+            }
+            catch (EntityException ee)
+            {
+                throw ee.InnerException.InnerException;
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException.InnerException;
+            }
 
-                    }
+        }
+
+        public void InactivarProveedor(Proveedores_Trans pro)
+        {
+            try
+            {
+                using (var db = new ServisSaltesaEntity())
+                {
+                    db.Database.Connection.Open();
+
+                    db.Entry(pro.Registro_Estado).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
 
                 }
             }

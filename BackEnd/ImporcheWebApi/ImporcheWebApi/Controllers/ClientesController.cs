@@ -33,32 +33,41 @@ namespace ImporcheWebApi.Controllers
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, client);
         }
 
-     [System.Web.Http.Route("api/Acceso/AgregarCliente")]
-    [System.Web.Http.HttpPost]
-    public HttpResponseMessage GuardarCliente(Clientes_Trans clien)
+         [System.Web.Http.Route("api/Acceso/AgregarCliente")]
+        [System.Web.Http.HttpPost]
+        public HttpResponseMessage GuardarCliente(Clientes_Trans clien)
         {
-             cliente.AgregarCliente(clien);
+                if (ModelState.IsValid)
+                {
+                 cliente.AgregarCliente(clien);
+                }
 
-            return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Se ha guardado el cliente");
+                return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Se ha guardado el cliente");
         }
     
-    [System.Web.Http.Route("api/Acceso/EditaCliente")]
-    [System.Web.Http.HttpPost]
-    public HttpResponseMessage Cliente_Edita(Clientes_Trans cliente_id)
+        [System.Web.Http.Route("api/Acceso/EditaCliente")]
+        [System.Web.Http.HttpPost]
+        public HttpResponseMessage Cliente_Edita(Clientes_Trans cliente_id)
         {
-             cliente.EditarCliente(cliente_id);
-
-            return Request.CreateResponse(System.Net.HttpStatusCode.OK, " ");
+                if (ModelState.IsValid)
+                {
+                    cliente.EditarCliente(cliente_id);
+                }
+                return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Datos del Cliente Actualizado ");
         }
 
 
-    [System.Web.Http.Route("api/Acceso/InactivaCliente")]
-    [System.Web.Http.HttpGet]
-    public HttpResponseMessage Cliente_Inactiva(Clientes_Trans cliente_id)
-    {
-        cliente.InactivaCliente(cliente_id);
-        return Request.CreateResponse(System.Net.HttpStatusCode.OK, "");
-    }
+        [System.Web.Http.Route("api/Acceso/InactivaCliente")]
+        [System.Web.Http.HttpGet]
+        public HttpResponseMessage Cliente_Inactiva(Clientes_Trans cliente_id)
+        {
+                if (ModelState.IsValid)
+                {
+                    cliente.InactivaCliente(cliente_id);
+                }
+       
+            return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Cliente Eliminado");
+        }
 
 
 

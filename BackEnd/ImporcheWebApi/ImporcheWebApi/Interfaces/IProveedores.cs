@@ -13,5 +13,6 @@ namespace ServisSaltesa.Interfaces
         Proveedores_Trans DetalleProveedor(int proveedorID);
         void AgregarProveedor(Proveedores_Trans pro);
         void EditarProveedor(Proveedores_Trans pro);
+        void InactivarProveedor(Proveedores_Trans pro);
     }
 }
