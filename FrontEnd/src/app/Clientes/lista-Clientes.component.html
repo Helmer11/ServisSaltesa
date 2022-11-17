@@ -7,13 +7,14 @@
 
 
               <div class="m-4">
-                <button type="button" class="btn btn-success float-right" routerLink="AgregarCliente">Crear Cliente</button>
+                <button type="button" class="btn btn-outline-success float-right" routerLink="AgregarCliente">Crear Cliente</button>
               </div>
 
               <form [formGroup]="listaForm" class="search-form ml-3">
+                <label>Clente:</label>
                 <div class="input-group">
-                  <input class="form-control col-6" type="text" formControlName="Cliente_Nombre" placeholder="Nombre, Apellido" aria-label="Search" required autocomplete="off">
-                  <button class="btn btn-primary m-1" type="button" (click)="BuscarCliente(0)"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  <input class="form-control col-4" type="text" formControlName="Cliente_Nombre" placeholder=" Nombre del cliente" aria-label="Search" required autocomplete="off">
+                  <button class="btn btn-primary  m-md-1" type="button" (click)="BuscarCliente(0)"><i class="fa fa-search" aria-hidden="true"></i></button>
                   <button class="btn btn-info m-1" type="button" (click)="ResetForm()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                 </div>
 
@@ -21,7 +22,7 @@
 
 
                 <div class="col-7" *ngIf="this.ClienteLista?.length > 0">
-                    <span>{{cantidad_Registro}} registro(s)</span>
+                    <span>{{ cantidad_Registro }} registro(s)</span>
                   </div>
 
                   <div class="d-flex justify-content-end m-4" id="order_by" *ngIf="this.ClienteLista[0]?.Cantidad_Registros > 10">
@@ -36,8 +37,8 @@
               </form>
 
           <div class="card-body">
-              <table class="table">
-                        <thead class="thead-dark">
+              <table class="table table-striped">
+                        <thead class="thead">
                             <tr>
                               <!-- <th scope="col">#</th> -->
                               <th scope="col">Nombre</th>
@@ -64,8 +65,8 @@
                               <td>{{c?.Cliente_Direccion}}</td>
                               <td>{{c?.Cliente_Telefono}}</td>
                               <td>{{c?.Cliente_Celular}}</td>
-                              <td><button class="btn btn-success" [routerLink]="'detalle/'+ c.Cliente_id"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
-                              <td><button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                              <td><button class="btn btn-outline-success" [routerLink]="'detalle/'+ c.Cliente_id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+                              <td><button class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                           </tr>
 
                   </tbody>

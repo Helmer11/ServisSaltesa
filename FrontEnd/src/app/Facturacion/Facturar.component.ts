@@ -3,17 +3,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Empleado_Trans } from '../models/Empleado_Trans';
 import { Marcas_Cata } from '../models/Marcas';
 import { Modelos_Cata } from '../models/Modelos_Cata';
-import { FacturacionService } from './Facturacion.service';
+import { FacturacionService } from './Facturar.service';
 import { ToastrService } from 'ngx-toastr';
 import { Comprobantes_Cata } from '../models/Comprobantes_Cata';
 import { Tipo_Comprobante } from '../models/Tipo_Comprobante';
 
 @Component({
-  selector: 'app-Facturacion',
-  templateUrl: './Facturacion.component.html',
-  styleUrls: ['./Facturacion.component.scss']
+  selector: 'app-Facturar',
+  templateUrl: './Facturar.component.html',
+  styleUrls: ['./Facturar.component.scss']
 })
-export class FacturacionComponent implements OnInit {
+
+export class FacturarComponent implements OnInit {
 
 
   MarcaCata: Marcas_Cata;
@@ -97,6 +98,7 @@ export class FacturacionComponent implements OnInit {
   }
 
  public  ComprobanteFiscal(event){
+
         this._servisFactura.CargarSecuencia(event.Comprobante_id, 2).subscribe((res: Tipo_Comprobante) => {
           this.FormFactura.patchValue({
             Comprobante_Secuencia: res[0].Comprobante_Secuencia,

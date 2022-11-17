@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { FacturacionService } from './Facturacion.service';
+import { FacturacionService } from './Facturar.service';
 
 describe('Service: Facturacion', () => {
   beforeEach(() => {

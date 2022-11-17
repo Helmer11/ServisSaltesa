@@ -8,11 +8,14 @@ export let APIURL = {
   Catalogo: {
     Marcas: BASEURL + 'Marcas_Lista',
     Modelos: BASEURL + 'Modelo_Lista?marcaID=',
-    Empleado: BASEURL + 'Empleado_Lista',
+
     Comprobantes: BASEURL + 'Comprobantes_Lista',
     Categoria: BASEURL + 'Lista_Categoria'
   },
-
+  Empleado: {
+    consulta: BASEURL + 'Empleado_Lista?',
+  }
+,
   Comprobantes:{
       ComprobanteSecuencia: BASEURL + 'Comprobantes_Secuencia?'
   },
@@ -31,6 +34,10 @@ export let APIURL = {
       detalle: BASEURL + 'Proveedor_Detalle?proveedorID=',
       Editar: BASEURL + 'Proveedor_Edita',
       Eliminar: BASEURL + 'Proveedor_Inactivar'
+    },
+    Facturas: {
+      consulta: BASEURL + "factura_Lista?",
+      detalle: BASEURL + "detalle_factura?"
     }
 
 

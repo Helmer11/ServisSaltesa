@@ -168,8 +168,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CatalogosController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ComprobanteController.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\FacturacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProveedoresController.cs" />
@@ -177,11 +180,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-
     <Compile Include="Interfaces\ICatalogo.cs" />
-
     <Compile Include="Interfaces\ICategoria.cs" />
     <Compile Include="Interfaces\IClientes.cs" />
+    <Compile Include="Interfaces\IComprobantes.cs" />
+    <Compile Include="Interfaces\IEmpleado.cs" />
     <Compile Include="Interfaces\IFacturacion.cs" />
     <Compile Include="Interfaces\IProveedores.cs" />
     <Compile Include="Migrations\202105291853530_ServisSaltesaEntities.cs" />
@@ -192,21 +195,23 @@
     <Compile Include="Models\Catalogos.cs" />
     <Compile Include="Models\Clientes.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Comprobantes.cs" />
     <Compile Include="Models\Data\Cliente_Detalle_Result.cs" />
     <Compile Include="Models\Data\Cliente_Trans_Result.cs" />
-
     <Compile Include="Models\Data\Cliente_Vehiculo_Result.cs" />
-
     <Compile Include="Models\Data\Comprobantes_Secuencia_Result.cs" />
     <Compile Include="Models\Data\Categorias_Trans.cs" />
     <Compile Include="Models\Data\Clientes_Trans.cs" />
     <Compile Include="Models\Data\Cliente_Vehiculo_Trans.cs" />
     <Compile Include="Models\Data\Color_Cata.cs" />
     <Compile Include="Models\Data\Comprobantes_Cata.cs" />
+    <Compile Include="Models\Data\Comprobante_Cata_Result.cs" />
     <Compile Include="Models\Data\Empleados_Trans.cs" />
     <Compile Include="Models\Data\Empresas_Trans.cs" />
     <Compile Include="Models\Data\Facturas_Detalles_Trans.cs" />
+    <Compile Include="Models\Data\Facturas_Lista_Result.cs" />
     <Compile Include="Models\Data\Facturas_Trans.cs" />
+    <Compile Include="Models\Data\Factura_Detalle_Result.cs" />
     <Compile Include="Models\Data\Inventarios_Trans.cs" />
     <Compile Include="Models\Data\Marcas_Cata.cs" />
     <Compile Include="Models\Data\Modelos_Cata.cs" />
@@ -217,6 +222,7 @@
     <Compile Include="Models\Data\Tipo_Comprobantes_Trans.cs" />
     <Compile Include="Models\Data\Tipo_Transaccion_Cata.cs" />
     <Compile Include="Models\Data\Tipo_Vehiculo_Cata.cs" />
+    <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Facturacion.cs" />
     <Compile Include="Models\Proveedores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -377,8 +383,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Catalogos\" />
     <Folder Include="Views\Categoria\" />
     <Folder Include="Views\Clientes\" />
+    <Folder Include="Views\Comprobante\" />
+    <Folder Include="Views\Empleado\" />
     <Folder Include="Views\Facturacion\" />
     <Folder Include="Views\Proveedores\" />
   </ItemGroup>

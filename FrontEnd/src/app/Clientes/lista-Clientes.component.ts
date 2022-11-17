@@ -53,17 +53,17 @@ public BuscarCliente(Busaqueda: number){
   public ListaCliente(){
     this.loading = true;
     setTimeout(() => {
-      this._ServicioCliente.CargarListaCliente(this._ServicioCliente.FiltroCliente)
-      .subscribe((Client: Cliente[])=>{
+      this._ServicioCliente.CargarListaCliente( this._ServicioCliente.FiltroCliente )
+      .subscribe(( Client: Cliente[] ) => {
         this.ClienteLista  = Client;
-        if(this.ClienteLista.length > 0){
+        if( this.ClienteLista.length > 0 ){
             this.cantidad_Registro = this.ClienteLista[0].Cantidad_Registros;
             this.Linea = this.ClienteLista[0].Linea;
             this.Ultima_Linea = this.ClienteLista[0].Ultima_Linea;
         }
       });
       this.loading = false;
-    }, 3000);
+    }, 2000);
 
   }
 

@@ -148,9 +148,5 @@ namespace ServisSaltesa.Models
 
         }
 
-
-
-
-
     }
 }

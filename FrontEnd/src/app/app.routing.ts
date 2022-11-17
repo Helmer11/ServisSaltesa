@@ -1,12 +1,9 @@
+
 import { Routes, RouterModule } from '@angular/router';
-import { ClientesComponent } from './Clientes/Clientes.component';
 import { ListaClientesComponent } from './Clientes/lista-Clientes.component';
-import { ListaProvedoresComponent } from './Provedores/Lista-Provedores.component';
-import { ProvedoresComponent } from './Provedores/Provedores.component';
-import { FacturacionComponent } from './Facturacion/Facturacion.component';
+
 import { LayoutComponent } from './shared/layout/layout.component';
 import { NgModule } from '@angular/core';
-
 
 export const routes: Routes = [
   {
@@ -37,9 +34,15 @@ export const routes: Routes = [
           //component: ListaProvedoresComponent
         },
         {
-          path: 'Facturacion',
-          component: FacturacionComponent
+          path: 'ListaFacturacion',
+          loadChildren: "../app/Facturacion/Facturas.module#FacturasModule"
+          //component: ListaFacturaComponent
         },
+        // {
+        //   path: 'Facturacion',
+        //   loadChildren: "../app/Facturacion/Facturas.module#FacturasModule"
+        //   //component: FacturarComponent
+        // },
       ]
    },
    {

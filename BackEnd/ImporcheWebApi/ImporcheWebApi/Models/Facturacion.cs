@@ -16,22 +16,26 @@ namespace ImporcheWebApi.Models
     {
       
 
-        public IEnumerable Marcas_Cata()
+        public IEnumerable Factura_Lista( int PageIndex, int PageSize, string Cliente_Nombre , string Fecha_Desde , string Fecha_Hasta, string Orderby )
         {
             try
             {
+                string Nombre = Cliente_Nombre == null ? Cliente_Nombre = "" : Cliente_Nombre;
+                string FechaDesde = Fecha_Desde == null ? Fecha_Desde = "" : Fecha_Desde;
+                string FechaHasta = Fecha_Hasta == null ? Fecha_Hasta = "" : Fecha_Hasta;
+                string order = Orderby == null ? Orderby = "" : Orderby;
+
                 using (var db = new ServisSaltesaEntity())
                 {
                     db.Database.Connection.Open();
-                     var query =  db.Marcas.Select(x => new { x.Marca_id, x.Marca_Nombre });
-                    //var query = db.Database.SqlQuery<Marcas_Cata>("Proc_Marcas_Lista")
-                    //    .Select(x => new
-                    //    {
-                    //        Marca_id = x.Marca_id,
-                    //        Marca_Nombre = x.Marca_Nombre
-                    //    });
-
-                    return query.ToList();
+                    var lista = db.Database.SqlQuery<Facturas_Lista_Result>("Proc_Facturas_Lista @PageIndex,@PageSize, @Cliente_Nombre,@Fecha_Desde,@Fecha_Hasta, @Orderby",
+                                                       new SqlParameter("@PageIndex", PageIndex),
+                                                       new SqlParameter("@PageSize", PageSize),
+                                                       new SqlParameter("@Cliente_Nombre", Nombre),
+                                                       new SqlParameter("@Fecha_Desde", FechaDesde),
+                                                       new SqlParameter("@Fecha_Hasta", FechaHasta),
+                                                       new SqlParameter("@Orderby", order));
+                    return lista.ToList();
                 }
 
             }catch(EntityException ee)
@@ -49,42 +53,16 @@ namespace ImporcheWebApi.Models
            
         }
 
-        public IEnumerable Modelo_Cata(int marca_id)
+        public IEnumerable Factura_Detalle(int detalle_id)
         {
             try
             {
                 using (var db = new ServisSaltesaEntity())
                 {
                     db.Database.Connection.Open();
-                    var query = db.Modelos.Where(z => z.Marca_ID == marca_id).Select(t => new { t.Modelo_id, t.Modelo_Nombre });
-
-                    return query.ToList();
-                }
-
-            }
-            catch (EntityException ee)
-            {
-                throw ee;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-
-        public IEnumerable Empleados_Lista( Int32? Empresa_ID )
-        {
-            try
-            {
-                using (var db = new ServisSaltesaEntity())
-                {
-                    db.Database.Connection.Open();
-                    var query = db.Empleados.Select(x => new {
-                        x.Empleado_id,
-                        Empleado_Nombre_Completo = x.Empleado_Nombre + " "+ x.Empleado_Apellido
-                    }).AsEnumerable();
-                    return query.ToList();
+                    var detalle = db.Database.SqlQuery<Factura_Detalle_Result>("Proc_Factura_Detalle @Detalle_id",
+                                                                                new SqlParameter("@Detalle_id", detalle_id)).ToList();
+                    return detalle;
                 }
 
             }
@@ -111,44 +89,6 @@ namespace ImporcheWebApi.Models
                     return query.ToList();
                 }           
             }catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-
-        public IEnumerable Comprobantes_Secuencia_Consulta(int ComprobanteID, int EmpresaID)
-        {
-            try
-            {
-                using (ServisSaltesaEntity db = new ServisSaltesaEntity())
-                {
-                    db.Database.Connection.Open();
-
-                    //var secuencia = db.Database.SqlQuery<Tipo_Comprobantes_Trans>("Proc_Comprobantes_Secuencia_Consulta @Comprobante_id, @Empresa_id",
-                    //    new SqlParameter("@Comprobante_id", ComprobanteID),
-                    //    new SqlParameter("@Empresa_id", EmpresaID)).ToList();
-
-
-                    var secuencia = db.Tipo_Comprobantes.Where(z => z.Comprobante_ID == ComprobanteID & z.Empresa_ID == EmpresaID)
-                        .Select(f => new
-                        {
-                            f.Tipo_Comprobante_Serie,
-                            f.Tipo_Comprobante_Numero,
-                            f.Tipo_Comprobante_Secuencia,
-                            Comprobante_Secuencia = f.Tipo_Comprobante_Serie.Trim() + "" + f.Tipo_Comprobante_Numero + "" + f.Tipo_Comprobante_Secuencia
-
-                        }).ToList();
-
-
-                    return secuencia;
-                }
-            }
-            catch (EntityException ee)
-            {
-                throw ee;
-            
-            }catch( Exception ex)
             {
                 throw ex;
             }

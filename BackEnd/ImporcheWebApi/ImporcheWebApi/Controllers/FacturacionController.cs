@@ -15,51 +15,31 @@ namespace ImporcheWebApi.Controllers
     public class FacturacionController : ApiController
     {
          IFacturacion factura = new Facturacion();
-         ICatalogo catalogos = new Catalogos();
-
-
-        // GET: Facturacion
-        [System.Web.Http.Route("api/Acceso/Marcas_Lista")]
-        [System.Web.Http.HttpGet]
-        public HttpResponseMessage Marcas()
-        { 
-            var marca = catalogos.Marcas_Cata();
-            return Request.CreateResponse(System.Net.HttpStatusCode.OK, marca);
-        }
       
-        [System.Web.Http.Route("api/Acceso/Modelo_Lista")]
+        [System.Web.Http.Route("api/Acceso/factura_Lista")]
         [System.Web.Http.HttpGet]
-        public HttpResponseMessage Modelos(int marcaID)
+        public HttpResponseMessage Lista_Factura(int PageIndex, int PageSize, string Cliente_Nombre, string Fecha_Desde, string Fecha_Hasta, string Orderby)
         {
-            var modelo = catalogos.Modelo_Cata(marcaID);
-            return Request.CreateResponse(System.Net.HttpStatusCode.OK, modelo);
+            var empleado = factura.Factura_Lista( PageIndex,PageSize, Cliente_Nombre, Fecha_Desde, Fecha_Hasta, Orderby);
+            return Request.CreateResponse(System.Net.HttpStatusCode.OK, empleado);
         }
 
-        [System.Web.Http.Route("api/Acceso/Empleado_Lista")]
+        [System.Web.Http.Route("api/Acceso/detalle_factura")]
         [System.Web.Http.HttpGet]
-        public HttpResponseMessage Lista_Empleado()
+        public HttpResponseMessage Factura_detalle(int detalleID)
         {
-            var empleado = factura.Empleados_Lista();
+            var empleado = factura.Factura_Detalle(detalleID);
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, empleado);
         }
 
 
-        [System.Web.Http.Route("api/Acceso/Comprobantes_Lista")]
-        [System.Web.Http.HttpGet]
-        public HttpResponseMessage Lista_Comprobante()
-        {
-            var empleado = factura.Comprobantes_Lista();
-            return Request.CreateResponse(System.Net.HttpStatusCode.OK, empleado);
-        }
-
-
-        [System.Web.Http.Route("api/Acceso/Comprobantes_Secuencia")]
-        [System.Web.Http.HttpGet]
-        public HttpResponseMessage Comprobante_Secuencia(int comprobante_ID, int empresa_ID)
-        {
-            var comprobanteSecuencia = factura.Comprobantes_Secuencia_Consulta(comprobante_ID, empresa_ID);
-            return Request.CreateResponse(System.Net.HttpStatusCode.OK, comprobanteSecuencia);
-        }
+        //[System.Web.Http.Route("api/Acceso/Comprobantes_Secuencia")]
+        //[System.Web.Http.HttpGet]
+        //public HttpResponseMessage Comprobante_Secuencia(int comprobante_ID, int empresa_ID)
+        //{
+        //    var comprobanteSecuencia = factura.Comprobantes_Secuencia_Consulta(comprobante_ID, empresa_ID);
+        //    return Request.CreateResponse(System.Net.HttpStatusCode.OK, comprobanteSecuencia);
+        //}
 
     }
 }

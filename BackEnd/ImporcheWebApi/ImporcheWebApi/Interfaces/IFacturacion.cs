@@ -9,9 +9,9 @@ namespace ImporcheWebApi.Interfaces
 {
     interface IFacturacion
     {
-        
-        IEnumerable Empleados_Lista( int? Empresa_ID = 1);
-        IEnumerable Comprobantes_Lista();
-        IEnumerable Comprobantes_Secuencia_Consulta(int Comprobante_ID, int Empresa_ID);
+        IEnumerable Factura_Lista(int PageIndex, int PageSize, string Cliente_Nombre, string Fecha_Desde, string Fecha_Hasta, string Orderby);
+
+        IEnumerable Factura_Detalle(int detalle_id);
+
     }
 }
