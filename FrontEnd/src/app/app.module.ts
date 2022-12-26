@@ -1,21 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 
 
-import {AppRoutingModule } from '../app/app.routing'
+
 import { LayoutComponent } from './shared/layout/layout.component';
 
-
+// Modulo
 import { HttpClientModule } from '@angular/common/http';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {AppRoutingModule } from '../app/app.routing'
 
 
-// Modulo
 
 //Componente
 import { AppComponent } from './app.component';
@@ -23,6 +22,7 @@ import { ClienteModule } from './Clientes/Cliente.module';
 import { ProveedorModule } from './Provedores/Proveedores.module';
 import { SharedModule } from './shared/shared.module';
 import { FacturasModule } from './Facturacion/Facturas.module';
+import { ComprobantesModule } from './Comprobantes/Comprobantes.module';
 
 
 
@@ -31,8 +31,7 @@ import { FacturasModule } from './Facturacion/Facturas.module';
   declarations: [
     AppComponent,
     LayoutComponent,
-    //LoadingComponent,
-
+   //LoadingComponent
    ],
   imports: [
     //BrowserModule,
@@ -45,6 +44,7 @@ import { FacturasModule } from './Facturacion/Facturas.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ClienteModule,
+    //ComprobantesModule,
     ProveedorModule,
     FacturasModule,
     SharedModule,

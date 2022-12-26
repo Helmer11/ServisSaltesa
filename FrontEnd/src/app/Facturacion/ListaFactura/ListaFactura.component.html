@@ -6,7 +6,8 @@
             </div>
 
             <div class="m-4">
-              <button type="button" class="btn btn-success float-right" routerLink="agregarFactura">Crear Factura</button>
+              <button type="button" class="btn btn-outline-success
+               float-right" routerLink="agregarFactura">Crear Factura</button>
             </div>
 
             <form [formGroup]="listafactForm" class="search-form ml-3">
@@ -34,8 +35,8 @@
             </form>
 
         <div class="card-body">
-            <table class="table">
-                      <thead class="thead-dark">
+            <table class="table table-striped">
+                      <thead class="thead">
                           <tr>
                             <!-- <th scope="col">#</th> -->
                             <th scope="col">No. Factura</th>
@@ -58,8 +59,8 @@
                             <td>{{ f?.Marca_Nombre }}</td>
                             <td>{{ f?.Modelo_Nombre }}</td>
 
-                            <td><button class="btn btn-success" [routerLink]="'detalle/'+ f.factura_id"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
-                            <td><button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                            <td><button class="btn btn-outline-success" [routerLink]="'detalle/'+ f.factura_id"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                            <td><button class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                         </tr>
 
                 </tbody>

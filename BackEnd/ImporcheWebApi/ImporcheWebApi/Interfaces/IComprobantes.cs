@@ -11,6 +11,6 @@ namespace ServisSaltesa.Interfaces
     {
 
         IEnumerable Comprobantes_Lista();
-        IEnumerable Comprobantes_Secuencia_Consulta(int ComprobanteID, int EmpresaID);
+        IEnumerable Comprobantes_Secuencia_Consulta(int EmpresaID);
     }
 }

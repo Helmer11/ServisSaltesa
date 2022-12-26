@@ -24,6 +24,8 @@ namespace ServisSaltesa.Models.Data
         public byte Comprobante_ID { get; set; }
         public string Tipo_Comprobante_Serie { get; set; }
         public string Tipo_Comprobante_Numero { get; set; }
+
+       
         public string Tipo_Comprobante_Secuencia { get; set; }
         public int Empresa_ID { get; set; }
         public string Comprobantes_Secuencia { get; set; }

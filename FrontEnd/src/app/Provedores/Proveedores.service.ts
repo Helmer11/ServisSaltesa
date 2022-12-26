@@ -46,15 +46,15 @@ public ListaProveedores(pr: Proveedor_Trans){
 
 public guardarProveedor(prov: Proveedor_Trans){
   const headerOptions = new HttpHeaders({'Content-Type':'application/json'});
-  return this._htpp.post(APIURL.Proveedores.Agregar, prov , { headers: headerOptions })
+  return this._htpp.post( APIURL.Proveedores.Agregar, prov , { headers: headerOptions })
 }
 
 public getCategoria(){
-  return this._htpp.get(APIURL.Catalogo.Categoria);
+  return this._htpp.get( APIURL.Catalogo.Categoria);
 }
 
 public proveedor_Detalle(proveID: Number){
-  return this._htpp.get(APIURL.Proveedores.detalle + proveID)
+  return this._htpp.get( APIURL.Proveedores.detalle + proveID)
 }
 
 

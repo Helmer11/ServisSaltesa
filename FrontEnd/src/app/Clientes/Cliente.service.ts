@@ -1,7 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Resolver } from 'dns';
-import { Observable } from 'rxjs';
 import { Cliente } from '../models/Cliente';
 import { Cliente_Vehiculo } from '../models/Cliente_Vehiculo';
 import { APIURL } from '../shared/UrlApi';
@@ -25,15 +23,15 @@ FiltroCliente: Cliente = {
 
 
 public CargarMarca(){
-  return this._http.get(APIURL.Catalogo.Marcas);
+  return this._http.get( `${APIURL.Catalogo.Marcas}`);
 }
 
 public CargarModelo( id: number){
-  return this._http.get(APIURL.Catalogo.Modelos + id);
+  return this._http.get(`${APIURL.Catalogo.Modelos + id}`);
 }
 
 public  getVehiculoCliente(Cliente_id: number){
-  return this._http.get<Cliente_Vehiculo[]>(APIURL.Cliente.detalleVehiculo + Cliente_id);
+  return this._http.get<Cliente_Vehiculo[]>( `${APIURL.Cliente.detalleVehiculo + Cliente_id}`);
 }
 
 
@@ -43,22 +41,22 @@ public CargarListaCliente(Cli: Cliente){
   "&PageSize=" + Cli.PageSize +
   "&orderByDirection0=false"+
   "&Cliente_Nombre=" + Cli.Cliente_Nombre
-  return this._http.get(APIURL.Cliente.Consulta + param);
+  return this._http.get( APIURL.Cliente.Consulta + param);
 }
 
 public GuardarCliente(client: Cliente){
   const headerOptions = new HttpHeaders({'Content-Type':'application/json'});
-  return this._http.post(APIURL.Cliente.Agregar,client, {headers: headerOptions});
+  return this._http.post( `${ APIURL.Cliente.Agregar } ${client}`, {headers: headerOptions});
 }
 
 
 public DetalleCliente(clienteID: number){
-return this._http.get(APIURL.Cliente.detalle + "cliente_id="+ clienteID);
+return this._http.get( `${ APIURL.Cliente.detalle + "cliente_id="+ clienteID}`);
 }
 
 public EditaCliente(client: Cliente){
   const headerOptions = new HttpHeaders({'Content-Type':'application/json'});
-  return this._http.post(APIURL.Cliente.Editar , client, {headers: headerOptions})
+  return this._http.post( `${ APIURL.Cliente.Editar }${client}`, {headers: headerOptions})
 }
 
 

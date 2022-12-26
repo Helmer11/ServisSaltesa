@@ -46,7 +46,7 @@ CargarSecuencia(idComprobante: number, IDEmpresa: number){
 
 let param = 'comprobante_ID='+ idComprobante + '&empresa_ID=' + IDEmpresa
 
-  return this._http.get(APIURL.Comprobantes.ComprobanteSecuencia + param);
+  return this._http.get(APIURL.Comprobantes.SecuenciaComprobante + param);
 }
 
 CargarListaFactura(): Observable<Facturas_Trans[]>{

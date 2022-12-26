@@ -3,24 +3,22 @@ import { environment} from '../../environments/environment';
 
 export let BASEURL = environment.Api;
 
-export let APIURL = {
+export const APIURL = {
 
   Catalogo: {
     Marcas: BASEURL + 'Marcas_Lista',
     Modelos: BASEURL + 'Modelo_Lista?marcaID=',
-
     Comprobantes: BASEURL + 'Comprobantes_Lista',
     Categoria: BASEURL + 'Lista_Categoria'
   },
   Empleado: {
     consulta: BASEURL + 'Empleado_Lista?',
-  }
-,
-  Comprobantes:{
-      ComprobanteSecuencia: BASEURL + 'Comprobantes_Secuencia?'
   },
-
-  Cliente: {
+  Comprobantes:{
+      consulta: BASEURL + 'Comprobantes_Lista',
+      SecuenciaComprobante: BASEURL + 'Empresa_Comprobante?'
+  },
+   Cliente: {
       Consulta: BASEURL + 'Cliente_Lista?',
       Agregar: BASEURL + 'AgregarCliente',
       detalle: BASEURL + 'detalleCliente?',

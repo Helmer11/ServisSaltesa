@@ -38,11 +38,11 @@ export const routes: Routes = [
           loadChildren: "../app/Facturacion/Facturas.module#FacturasModule"
           //component: ListaFacturaComponent
         },
-        // {
-        //   path: 'Facturacion',
-        //   loadChildren: "../app/Facturacion/Facturas.module#FacturasModule"
-        //   //component: FacturarComponent
-        // },
+        {
+          path: 'Comprobantes',
+          loadChildren: "../app/Comprobantes/Comprobantes.module#ComprobantesModule"
+          //component: FacturarComponent
+        },
       ]
    },
    {

@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity.Core;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -33,7 +34,7 @@ namespace ServisSaltesa.Models
             }
         }
 
-        public IEnumerable Comprobantes_Secuencia_Consulta(int ComprobanteID, int EmpresaID)
+        public IEnumerable Comprobantes_Secuencia_Consulta(int EmpresaID)
         {
             try
             {
@@ -41,19 +42,19 @@ namespace ServisSaltesa.Models
                 {
                     db.Database.Connection.Open();
 
-                    //var secuencia = db.Database.SqlQuery<Tipo_Comprobantes_Trans>("Proc_Comprobantes_Secuencia_Consulta @Comprobante_id, @Empresa_id",
-                    //    new SqlParameter("@Comprobante_id", ComprobanteID),
-                    //    new SqlParameter("@Empresa_id", EmpresaID)).ToList();
+                    var secuencia = db.Database.SqlQuery<Comprobantes_Secuencia_Result>("Proc_Comprobantes_x_Empresa_Consulta @Empresa_id",
+                        new SqlParameter("@Empresa_id", EmpresaID)).ToList();
 
-                    var secuencia = db.Tipo_Comprobantes.Where(z => z.Comprobante_ID == ComprobanteID & z.Empresa_ID == EmpresaID)
-                        .Select(f => new
-                        {
-                            f.Tipo_Comprobante_Serie,
-                            f.Tipo_Comprobante_Numero,
-                            f.Tipo_Comprobante_Secuencia,
-                            Comprobante_Secuencia = f.Tipo_Comprobante_Serie.Trim() + "" + f.Tipo_Comprobante_Numero + "" + f.Tipo_Comprobante_Secuencia
+                    //var secuencia = db.Tipo_Comprobantes.Where(z => z.Empresa_ID == EmpresaID)
+                    //    .Select(f => new
+                    //    {
+                    //        f.Tipo_Comprobante_id,
+                    //        f.Tipo_Comprobante_Serie,
+                    //        f.Comprobante_Nombre,
+                    //        f.Tipo_Comprobante_Secuencia,
+                    //        Comprobante_Secuencia = f.Tipo_Comprobante_Serie.Trim() + "" + f.Tipo_Comprobante_Numero + "" + f.Tipo_Comprobante_Secuencia
 
-                        }).ToList();
+                //}).ToList();
 
                     return secuencia;
                 }

@@ -23,12 +23,12 @@ namespace ServisSaltesa.Controllers
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, lista);
         }
 
-        [System.Web.Http.Route("api/Acceso/Comprobantes_Secuencia")]
+        [System.Web.Http.Route("api/Acceso/Empresa_Comprobante")]
         // GET: Comprobante
         [System.Web.Http.HttpGet]
-        public HttpResponseMessage Comprobantes_Secuencia(int comprobante_ID, int empresa_ID)
+        public HttpResponseMessage Comprobantes_Secuencia(int empresa_ID)
         {
-            var lista = comprobante.Comprobantes_Secuencia_Consulta(comprobante_ID, empresa_ID);
+            var lista = comprobante.Comprobantes_Secuencia_Consulta( empresa_ID);
 
             return Request.CreateResponse(System.Net.HttpStatusCode.OK,lista);
         }
