@@ -4,13 +4,16 @@ export interface Facturas_Trans {
   Nombre_Cliente?: string;
   Marca_Nombre?: string;
   Modelo_Nombre?: string;
+  Transaccion?: string;
+  Subtotal?: number;
+  Total?: number;
   linea?: number;
   ultima_Linea?: number;
   Cantidad_Registros?: number;
   PageIndex?: number;
-   PageSize?: number;
-   Cliente_Nombre?: string;
-   Fecha_Desde?: string;
-    Fecha_Hasta?: string;
-     Orderby?: string;
+  PageSize?: number;
+  Cliente_Nombre?: string;
+  Fecha_Desde?: string;
+  Fecha_Hasta?: string;
+  Orderby?: string;
 }

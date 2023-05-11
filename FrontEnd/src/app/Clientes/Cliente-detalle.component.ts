@@ -114,12 +114,7 @@ public EditaCliente(){
   }, err =>{
     this._toast.error("No se pudo actualizar los datos", "Error");
   })
-
-
-
 }
-
-
 
 public Retornar(){
   window.history.back();

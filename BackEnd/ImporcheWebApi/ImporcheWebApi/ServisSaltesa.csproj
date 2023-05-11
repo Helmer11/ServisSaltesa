@@ -184,6 +184,7 @@
     <Compile Include="Interfaces\ICategoria.cs" />
     <Compile Include="Interfaces\IClientes.cs" />
     <Compile Include="Interfaces\IComprobantes.cs" />
+    <Compile Include="Interfaces\ICotizacion.cs" />
     <Compile Include="Interfaces\IEmpleado.cs" />
     <Compile Include="Interfaces\IFacturacion.cs" />
     <Compile Include="Interfaces\IProveedores.cs" />
@@ -196,6 +197,8 @@
     <Compile Include="Models\Clientes.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Comprobantes.cs" />
+    <Compile Include="Models\Conexion.cs" />
+    <Compile Include="Models\Cotizacion.cs" />
     <Compile Include="Models\Data\Cliente_Detalle_Result.cs" />
     <Compile Include="Models\Data\Cliente_Trans_Result.cs" />
     <Compile Include="Models\Data\Cliente_Vehiculo_Result.cs" />

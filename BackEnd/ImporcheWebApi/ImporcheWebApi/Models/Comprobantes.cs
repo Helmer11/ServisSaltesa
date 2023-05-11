@@ -3,70 +3,65 @@ using ServisSaltesa.Models.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Core;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 
 namespace ServisSaltesa.Models
 {
     public class Comprobantes : IComprobantes
     {
-        public IEnumerable Comprobantes_Lista()
+        private readonly Conexion conec;
+
+        public Comprobantes()
+        {
+            conec = new Conexion();
+        }
+
+        public DataTable Comprobantes_Lista()
         {
             try
             {
-                using (ServisSaltesaEntity db = new ServisSaltesaEntity())
+                using (var conn = conec.AbrirConexion())
                 {
-                    db.Database.Connection.Open();
-                    var cata = db.Database.SqlQuery<Comprobante_Cata_Result>("Proc_Comprobantes_Cata_Lista");
-                    
-                    return cata.ToList();
+                    DataTable dt = new DataTable();
+                    SqlCommand cmd = new SqlCommand("Proc_Comprobantes_Cata_Lista", conn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    conec.CerrarConexion();
+                    return dt;
                 }
-            }
-            catch (EntityException ee)
-            {
-                throw ee;
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception(ex.Message);
             }
         }
 
-        public IEnumerable Comprobantes_Secuencia_Consulta(int EmpresaID)
+        public DataTable Comprobantes_Secuencia_Consulta(int EmpresaID)
         {
             try
             {
-                using (ServisSaltesaEntity db = new ServisSaltesaEntity())
+                using (var conn = conec.AbrirConexion())
                 {
-                    db.Database.Connection.Open();
-
-                    var secuencia = db.Database.SqlQuery<Comprobantes_Secuencia_Result>("Proc_Comprobantes_x_Empresa_Consulta @Empresa_id",
-                        new SqlParameter("@Empresa_id", EmpresaID)).ToList();
-
-                    //var secuencia = db.Tipo_Comprobantes.Where(z => z.Empresa_ID == EmpresaID)
-                    //    .Select(f => new
-                    //    {
-                    //        f.Tipo_Comprobante_id,
-                    //        f.Tipo_Comprobante_Serie,
-                    //        f.Comprobante_Nombre,
-                    //        f.Tipo_Comprobante_Secuencia,
-                    //        Comprobante_Secuencia = f.Tipo_Comprobante_Serie.Trim() + "" + f.Tipo_Comprobante_Numero + "" + f.Tipo_Comprobante_Secuencia
-
-                //}).ToList();
-
-                    return secuencia;
+                    DataTable dt = new DataTable();
+                    SqlCommand cmd = new SqlCommand("Proc_Comprobantes_x_Empresa_Consulta", conn);
+                    cmd.Parameters.AddWithValue("@Empresa_id", EmpresaID);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    conec.CerrarConexion();
+                    return dt;
                 }
-            }
-            catch (EntityException ee)
-            {
-                throw ee;
             }
             catch (Exception ex)
             {
-                throw ex;
-            }
+                throw new Exception(ex.Message);
+            }  
         }
     }
 }

@@ -142,6 +142,8 @@ C:\ProyectoX\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\bin\ServisSalte
 C:\ProyectoX\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\bin\ServisSaltesa.pdb
 C:\ProyectoX\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.dll
 C:\ProyectoX\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.pdb
+C:\ProyectoX\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.Migrations.ServisSaltesaEntities.resources
+C:\ProyectoX\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.csproj.GenerateResource.cache
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\bin\ServisSaltesa.dll.config
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\bin\ServisSaltesa.dll
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\bin\ServisSaltesa.pdb
@@ -210,12 +212,10 @@ C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\bin\System.
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\bin\System.Web.WebPages.Deployment.xml
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\bin\System.Web.WebPages.Razor.xml
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\bin\Antlr3.Runtime.pdb
+C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.csproj.AssemblyReference.cache
+C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.Migrations.ServisSaltesaEntities.resources
+C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.csproj.GenerateResource.cache
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.csproj.CoreCompileInputs.cache
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.csproj.CopyComplete
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.dll
 C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.pdb
-C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.Migrations.ServisSaltesaEntities.resources
-C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.csproj.GenerateResource.cache
-C:\ProyectoX\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.Migrations.ServisSaltesaEntities.resources
-C:\ProyectoX\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.csproj.GenerateResource.cache
-C:\ProyectSource\ServisSaltesa\BackEnd\ImporcheWebApi\ImporcheWebApi\obj\Debug\ServisSaltesa.csproj.AssemblyReference.cache

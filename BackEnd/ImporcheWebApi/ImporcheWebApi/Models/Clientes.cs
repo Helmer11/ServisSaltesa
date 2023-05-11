@@ -3,75 +3,67 @@ using System.Collections.Generic;
 using System.Data.Entity.Core;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using ServisSaltesa.Interfaces;
 using ServisSaltesa.Models.Data;
+using ServisSaltesa.Models;
+using System.Data;
 
 namespace ImporcheWebApi.Models
 {
     public class Clientes : IClientes
     {
+        private readonly Conexion conec;
 
-        public IEnumerable<Cliente_Trans_Result> Clientes_Lista(int PageIndex, int PageSize, string orderby, bool orderbyeDirection, string Cliente_Nombre)
+        public Clientes()
         {
-            try
-            {
-                string _ClienteNombre = "";
-               if(Cliente_Nombre != null)
-                {
-                    _ClienteNombre = Cliente_Nombre;
-
-                } else
-                {
-                    _ClienteNombre = "";
-                }
-         
-                using (var db = new ServisSaltesaEntity())
-                {
-                    db.Database.Connection.Open();
-
-                    var lista = db.Database.SqlQuery<Cliente_Trans_Result>("Proc_Clientes_Lista_Consulta @PageIndex, @PageSize, @orderby, @orderbyeDirection, @Cliente_Nombre",
-                    new SqlParameter("@PageIndex", PageIndex),
-                    new SqlParameter("@PageSize", PageSize),
-                    new SqlParameter("@orderby", orderby),
-                    new SqlParameter("@orderbyeDirection", orderbyeDirection),
-                    new SqlParameter("@Cliente_Nombre", _ClienteNombre)
-                    ).ToList();
-
-                    return lista;
-
-                }
-
-            } catch (EntityException ee)
-            {
-                throw ee;
-            }
-
-            catch(SqlException se)
-            {
-                throw se.InnerException;
-            }
-            catch (Exception ex)
-            {
-                throw ex.InnerException;
-            }
-
-
+            conec = new Conexion();
         }
 
 
-        public Cliente_Trans_Result DetalleCliente(int cliente_id)
+        public DataTable Clientes_Lista(int PageIndex, int PageSize, string orderby, bool orderbyeDirection, string Cliente_Nombre)
+        {
+             try
+                {
+                string _ClienteNombre = Cliente_Nombre != null ? Cliente_Nombre : Cliente_Nombre = "";
+                using (var conn = conec.AbrirConexion())
+                    {
+                        DataTable dt = new DataTable();
+                        SqlCommand cmd = new SqlCommand("Proc_Clientes_Lista_Consulta", conn);
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@PageIndex", PageIndex);
+                        cmd.Parameters.AddWithValue("@PageSize", PageSize);
+                        cmd.Parameters.AddWithValue("@orderby", orderby);
+                        cmd.Parameters.AddWithValue("@orderbyeDirection", orderbyeDirection);
+                        cmd.Parameters.AddWithValue("@Cliente_Nombre", _ClienteNombre);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+                        conec.CerrarConexion();
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                } 
+        }
+
+        public DataTable DetalleCliente(int cliente_id)
         {
 
             try
             {
-                using (var db = new ServisSaltesaEntity())
+                using (var conn = conec.AbrirConexion())
                 {
-                    db.Database.Connection.Open();
-                    var detalle = db.Database.SqlQuery<Cliente_Trans_Result>("Proc_Cliente_detalle_Consulta @Cliente_id",
-                        new SqlParameter("@Cliente_id", cliente_id)).FirstOrDefault();
-
-                    return detalle;
+                    SqlCommand cmd = new SqlCommand("Proc_Cliente_detalle_Consulta", conn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@cliente_id", cliente_id);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    conec.CerrarConexion();
+                    return dt;
                 }
             }
             catch (EntityException ee)
@@ -93,36 +85,27 @@ namespace ImporcheWebApi.Models
         {
             try
             {
-                using(var db = new ServisSaltesaEntity())
+                using (var conn = conec.AbrirConexion())
                 {
-                    db.Database.Connection.Open();                
-                    db.Cliente.Add(cli);
-                    db.SaveChanges();
-
-                    int _idCliente = db.Cliente.Select(p => p.Cliente_id).Max();
-
-                    var _vehiculo = new Cliente_Vehiculo_Trans()
-                    {
-                        Cliente_id = _idCliente,
-                        Marca_id = cli.Marca_id,
-                        Modelo_id = cli.Modelo_id,
-                    };
-
-                    db.Vehiculo.Add(_vehiculo);
-                    db.SaveChanges();
+                    SqlCommand cmd = new SqlCommand("Proc_Cliente_Inserta", conn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Cliente_Nombre", cli.Cliente_Nombre);
+                    cmd.Parameters.AddWithValue("@Cliente_Apellido", cli.Cliente_Apellido);
+                    cmd.Parameters.AddWithValue("@Cliente_Email", cli.Cliente_Email);
+                    cmd.Parameters.AddWithValue("@Marca_id", cli.Marca_id);
+                    cmd.Parameters.AddWithValue("@Modelo_id", cli.Modelo_id);
+                    cmd.Parameters.AddWithValue("@Cliente_Telefono", cli.Cliente_Telefono);
+                    cmd.Parameters.AddWithValue("@Cliente_Celular", cli.Cliente_Celular);
+                    cmd.Parameters.AddWithValue("@Cliente_RNC", cli.Cliente_RNC);
+                    cmd.Parameters.AddWithValue("@Cliente_Direccion", cli.Cliente_Direccion);
+                    cmd.ExecuteNonQuery();
+                    conec.CerrarConexion();
                 }
             }
-            catch (EntityException ee)
-            {
-                throw ee;
-            }
-            catch (SqlException se)
-            {
-                throw se.InnerException;
-            }
+
             catch (Exception ex)
             {
-                throw ex.InnerException;
+                throw new Exception(ex.Message);
             }
 
         }
@@ -131,40 +114,26 @@ namespace ImporcheWebApi.Models
         {
             try
             {
-                using (var db = new ServisSaltesaEntity())
+                using (var conn = conec.AbrirConexion())
                 {
-                    db.Database.Connection.Open();
-                    var resultado = db.Cliente.SingleOrDefault(b => b.Cliente_id == cli.Cliente_id);
 
-                    db.Entry(cli).State = System.Data.Entity.EntityState.Modified;
-                    if(resultado != null)
-                    {
-                        resultado.Cliente_Nombre = cli.Cliente_Nombre;
-                        resultado.Cliente_Apellido = cli.Cliente_Apellido;
-                        resultado.Cliente_Telefono = cli.Cliente_Telefono;
-                        resultado.Cliente_Direccion = cli.Cliente_Direccion;
-                        resultado.Cliente_Email = cli.Cliente_Email;
-                        resultado.Cliente_Celular = cli.Cliente_Celular;
-                        resultado.Cliente_RNC = cli.Cliente_RNC;
-                        resultado.Registro_Usuario = cli.Registro_Usuario;
-                        db.SaveChanges();
-                    }
+                    SqlCommand cmd = new SqlCommand("Proc_Cliente_edita", conn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Cliente_id", cli.Cliente_id);
+                    cmd.Parameters.AddWithValue("@Cliente_Nombre", cli.Cliente_Nombre);
+                    cmd.Parameters.AddWithValue("@Cliente_Apellido", cli.Cliente_Apellido);
+                    cmd.Parameters.AddWithValue("@Cliente_Email", cli.Cliente_Email);
+                    cmd.Parameters.AddWithValue("@Marca_id", cli.Marca_id);
+                    cmd.Parameters.AddWithValue("@Modelo_id", cli.Modelo_id);
+                    cmd.Parameters.AddWithValue("@Cliente_Telefono", cli.Cliente_Telefono);
+                    cmd.Parameters.AddWithValue("@Cliente_Celular", cli.Cliente_Celular);
+                    cmd.Parameters.AddWithValue("@Cliente_RNC", cli.Cliente_RNC);
+                    cmd.Parameters.AddWithValue("@Cliente_Direccion", cli.Cliente_Direccion);
+                    cmd.ExecuteNonQuery();
+                    conec.CerrarConexion();
 
-                    var _idCliente = db.Vehiculo.SingleOrDefault(p => p.Cliente_id == cli.Cliente_id);
-
-                    if (_idCliente != null)
-                    {
-                        _idCliente.Marca_id = cli.Marca_id;
-                        _idCliente.Modelo_id = cli.Modelo_id;
-                        db.SaveChanges();
-                    }
                 }
-            }
-            catch (EntityException ee)
-            {
-                throw new EntityException(ee.Message);
-            }
-            catch (SqlException se)
+            }catch (SqlException se)
             {
                 throw se.InnerException;
             }
@@ -179,66 +148,44 @@ namespace ImporcheWebApi.Models
         {
             try
             {
-                using (var db = new ServisSaltesaEntity())
+                using (var conn = conec.AbrirConexion())
                 {
-                    db.Database.Connection.Open();
-                        db.Entry(cli.Registro_Estado).State = System.Data.Entity.EntityState.Modified;
-                        db.SaveChanges();
-
-                    var _idCliente = db.Vehiculo.SingleOrDefault(p => p.Cliente_id == cli.Cliente_id);
-
-                    if (_idCliente != null)
-                    {
-                        db.Entry(_idCliente.Registro_Estado).State = System.Data.Entity.EntityState.Modified;
-                        db.SaveChanges();
-                    }
+                    SqlCommand cmd = new SqlCommand("Proc_Cliente_Inactivar", conn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Cliente_id", cli.Cliente_id);
+                    cmd.ExecuteNonQuery();
+                    conec.CerrarConexion();
                 }
-            }
-            catch (EntityException ee)
-            {
-                throw ee;
-            }
-            catch (SqlException se)
-            {
-                throw se.InnerException;
             }
 
             catch (Exception ex)
             {
-                throw ex.InnerException;
+                throw new Exception(ex.Message);
             }
 
         }
 
-        public IEnumerable<Cliente_Vehiculo_Result> Cliente_Vehiculo(int Cliente_id)
+        public DataTable Cliente_Vehiculo(int Cliente_id)
         {
             try
             {
-                using (var db = new ServisSaltesaEntity())
+                using (var conn = conec.AbrirConexion())
                 {
-                    var query = db.Database.SqlQuery<Cliente_Vehiculo_Result>("Proc_Cliente_Vehiculo_Trans_Consulta @cliente_id", 
-                        new SqlParameter("@cliente_id", Cliente_id)).ToList();
-                    return query;
+                    DataTable dt = new DataTable();
+                    SqlCommand cmd = new SqlCommand("Proc_Cliente_Vehiculo_Trans_Consulta", conn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Cliente_id", Cliente_id);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    conec.CerrarConexion();
+                    return dt;
                 }
-            }
-            catch (EntityException ee)
-            {
-                throw ee;
-            }
-            catch (SqlException se)
-            {
-                throw se.InnerException;
             }
             catch (Exception ex)
             {
-                throw ex.InnerException;
+                throw new Exception(ex.Message);
             }
 
         }
-
-
-       
-
-
     }
 }

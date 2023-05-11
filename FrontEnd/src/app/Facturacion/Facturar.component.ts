@@ -43,7 +43,9 @@ export class FacturarComponent implements OnInit {
 
 
    public  CreacionFormulario() {
-      this.FormFactura = this._formB.group({
+
+    this.FormFactura = this._formB.group({
+
             Comprobante_id: [0,Validators.required],
             Comprobante_Secuencia: ['', Validators.required],
             cliente_Nombre: ['', Validators.required],
@@ -100,9 +102,11 @@ export class FacturarComponent implements OnInit {
  public  ComprobanteFiscal(event){
 
         this._servisFactura.CargarSecuencia(event.Comprobante_id, 2).subscribe((res: Tipo_Comprobante) => {
+
           this.FormFactura.patchValue({
-            Comprobante_Secuencia: res[0].Comprobante_Secuencia,
-          });
+            Comprobante_Secuencia: res[0].Comprobantes_Secuencia
+          })
+
         });
   }
 

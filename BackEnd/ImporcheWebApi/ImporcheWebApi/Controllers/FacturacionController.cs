@@ -14,8 +14,13 @@ namespace ImporcheWebApi.Controllers
 {
     public class FacturacionController : ApiController
     {
-         IFacturacion factura = new Facturacion();
-      
+        private readonly IFacturacion factura;
+
+        public FacturacionController()
+        {
+            factura = new Facturacion();
+        }
+
         [System.Web.Http.Route("api/Acceso/factura_Lista")]
         [System.Web.Http.HttpGet]
         public HttpResponseMessage Lista_Factura(int PageIndex, int PageSize, string Cliente_Nombre, string Fecha_Desde, string Fecha_Hasta, string Orderby)
