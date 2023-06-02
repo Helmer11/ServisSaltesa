@@ -66,17 +66,9 @@ namespace ImporcheWebApi.Models
                     return dt;
                 }
             }
-            catch (EntityException ee)
-            {
-                throw ee;
-            }
-            catch (SqlException se)
-            {
-                throw se.InnerException;
-            }
             catch (Exception ex)
             {
-                throw ex.InnerException;
+                throw new Exception( ex.Message);
             }
 
         }
@@ -133,11 +125,7 @@ namespace ImporcheWebApi.Models
                     conec.CerrarConexion();
 
                 }
-            }catch (SqlException se)
-            {
-                throw se.InnerException;
-            }
-            catch (Exception ex)
+            }catch (Exception ex)
             {
                 throw ex.InnerException;
             }
@@ -156,9 +144,8 @@ namespace ImporcheWebApi.Models
                     cmd.ExecuteNonQuery();
                     conec.CerrarConexion();
                 }
-            }
 
-            catch (Exception ex)
+            }catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
