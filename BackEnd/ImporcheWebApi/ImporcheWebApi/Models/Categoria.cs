@@ -21,10 +21,8 @@ namespace ServisSaltesa.Models.Data
             conec = new Conexion();
         }
 
-
         public DataTable Categoria_Lista()
         {
-
             try
             {
                 using (var conn = conec.AbrirConexion())
@@ -46,6 +44,4 @@ namespace ServisSaltesa.Models.Data
         }
     }
 
-
-
-    }
+}
